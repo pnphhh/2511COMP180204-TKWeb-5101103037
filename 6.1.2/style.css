@@ -1,0 +1,390 @@
+@font-face {
+    font-family: '1FTV Henny Penny';
+    src: url('1FTVHennyPenny-Regular.woff2') format('woff2'),
+        url('1FTVHennyPenny-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MTD Buffied';
+    src: url('MTD.woff2') format('woff2'),
+        url('MTD.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* áp dụng chung toàn web */
+:root {
+    --primary-color: #FF6600; /* Cam */
+    --dark-color: #111111;    /* Đen */
+    --light-color: #FFFFFF;   /* Trắng */
+    --spooky-font: 'MTD Buffied', cursive;
+}
+
+body {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    font-family: '1FTV Henny Penny';
+    font-size: medium;
+    margin: 0;
+    background-image: url('bg.jfif'); /* Hình nền mờ */
+    background-blend-mode:color-burn;
+    background-attachment: fixed;
+    cursor: url('Iconcreme-Halloween-Twitter.512.png'), auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+header img {
+    width: 120px;
+    border-radius: 50%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-family: var(--spooky-font);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+.btn-register {
+    background-color: var(--primary-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+}
+
+main {
+    padding: 2rem;
+    min-height: 70vh;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-top: 3px solid var(--primary-color);
+}
+
+/* áp dụng cho trang chủ */
+
+.home-invite {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.gif {
+    position: relative;
+    height: 50%;
+    object-position: 50px;
+    z-index: -1;
+    opacity: 0.7; /* Giảm độ sáng gif */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hiệu ứng cho tiêu đề */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.animated-title {
+    font-family: var(--spooky-font);
+    font-size: 5rem;
+    animation: flicker 1.5s infinite;
+}
+
+/* áp dụng cho gallery */
+
+/* --- Trang Gallery --- */
+.gallery-page h1 {
+    text-align: center;
+    font-family: var(--spooky-font);
+    font-size: 3.5rem;
+    color: var(--primary-color);
+}
+
+.gallery-page .subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.image-grid {
+    display: grid;
+    /* Tự động chia cột, mỗi cột tối thiểu 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 3px solid #333;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* --- Trang Products --- */
+.products-page h1 {
+    text-align: center;
+    font-family: var(--spooky-font);
+    font-size: 5.5rem;
+    color: var(--primary-color);
+}
+
+.products-page .subtitle {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+.product-item {
+    background-color: #222;
+    border-left: 5px solid var(--primary-color);
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.product-title {
+    padding: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.product-title:hover {
+    background-color: #333;
+}
+/* Thêm mũi tên chỉ xuống */
+.product-title::after {
+    content: '▼';
+    position: absolute;
+    right: 20px;
+    transition: transform 0.3s;
+}
+/* Xoay mũi tên khi active */
+.product-title.active::after {
+    transform: rotate(180deg);
+}
+
+.product-details {
+    padding: 0 1rem 1rem 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border-top: 1px solid #444;
+}
+
+.product-details img {
+    max-width: 150px;
+    border-radius: 5px;
+}
+
+.product-details .price {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* --- Trang Form (Register & Contact) --- */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #444;
+}
+
+.form-container h1 {
+    text-align: center;
+    font-family: var(--spooky-font);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-container p {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #333;
+    border: 2px solid #555;
+    border-radius: 5px;
+    color: var(--light-color);
+    font-size: 1rem;
+    box-sizing: border-box; /* Quan trọng để padding không làm vỡ layout */
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    border: none;
+    border-radius: 5px;
+    font-family: var(--spooky-font);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: #ff8c00; /* Màu cam đậm hơn */
+    transform: translateY(-3px);
+}
+
+/* --- Trang History --- */
+.history-page h1 {
+    text-align: center;
+    font-family: var(--spooky-font);
+    font-size: 3.5rem;
+    color: var(--primary-color);
+}
+
+.history-page .subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.history-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start; /* Căn các item theo đỉnh */
+    margin-bottom: 3rem;
+}
+
+.history-text {
+    flex: 2; /* Chiếm 2/3 không gian */
+    font-family:monospace;
+}
+
+.history-image {
+    flex: 1; /* Chiếm 1/3 không gian */
+}
+
+.history-page h2 {
+    font-family: var(--spooky-font);
+    font-size: 2rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid #444;
+    padding-bottom: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.history-page p {
+    line-height: 1.8; /* Giãn dòng cho dễ đọc */
+    font-size: 1.1rem;
+}
+
+.history-image img {
+    width: 100%;
+    border-radius: 8px;
+    border: 3px solid #333;
+}
+
+.history-image .caption {
+    font-style: italic;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 0.5rem;
+}
+
+/* --- CSS cho video responsive --- */
+.video-section h2 {
+    text-align: center;
+    
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 56.25%; /* Tỷ lệ 16:9 */
+    margin: 1rem auto;
+    border: 3px solid var(--primary-color);
+    border-radius: 8px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Responsive cho màn hình nhỏ --- */
+@media (max-width: 768px) {
+    .history-content {
+        flex-direction: column; /* Chuyển thành 1 cột */
+    }
+}
+
+
+
+
+
