@@ -1,0 +1,151 @@
+.hh-header{
+    position: relative;
+    height: 170px;
+}
+
+.hh-logo{
+    position: absolute;
+    right: 0px;
+    width: 230px;
+}
+
+.hh-company{
+    font-family: Impact;
+    font-size: 35px;
+    text-shadow: 0 0 2px black;
+    position: absolute;
+    top: 45px;
+    padding-bottom: 2px;
+    border-bottom: 1px dotted gray;
+}
+
+.hh-slogan{
+    position: absolute;
+    top: 100px;
+}
+
+.hh-sheet{
+    box-shadow: 0 0 5px lightgray;
+    border-radius: 10px;
+    padding: 5px;
+    position: relative;
+    top: -10px;
+    margin-top: 20px;
+}
+
+
+.hh-body {
+    padding: 5px;
+}
+
+.hh-cart ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    font-size: smaller;
+}
+
+.hh-cart img {
+    height: 30%;
+    width: 30%;
+}
+
+.hh-card {
+    margin: 7px 0;
+}
+
+.hh-product {
+    text-align: center;
+    padding: 5px 2px;
+    display: inline-block;
+}
+
+.hh-product .card-body img{
+    height: 150px;
+    max-width: 95%;
+}
+
+.detail{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 0 0 0 0;
+
+}
+
+.detail-img{  
+    flex: 0 0 95%; 
+    max-width: 95%;
+}
+
+.detail-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.detail-doc{
+    flex: 1;
+}
+
+
+.social li{
+    list-style-type: none;
+    display: inline;
+    float: left;     
+}
+
+.social a{
+color: black;
+padding: 0 5px;
+}
+
+.social a:hover{
+color: rgb(31, 21, 92);
+}
+
+.option {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-left: 18%;
+    margin-right: 30%;
+}
+.option li {
+    padding: 10px 20px;
+    border: 1px solid #ced4da;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.option li:hover {
+    background-color: #e1f0ff;
+    border-color: #adb5bd;
+}
+.option li:nth-child(2) {
+    background-color: black;
+    color: white;
+}
+.option li:nth-child(3) {
+    background-color: black;
+    color: white;
+}
+.option li:nth-child(2):hover {
+    background-color: #0e356e;
+}
+
+.option li:nth-child(3):hover {
+    background-color: #0e356e;
+}
+
+@media (max-width: 768px) {
+    .detail{
+        flex-direction: column;
+    }
+    .detail-img{
+        max-width: 100%;
+    }
+}
