@@ -1,0 +1,318 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  line-height: 1.7;
+}
+
+a {
+  color: #911414;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+a:hover {
+  color: rgb(130.5, 18, 18);
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.content-block {
+  margin-bottom: 2.5rem;
+}
+
+.site-header {
+  padding: 1rem 0;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+}
+.site-header .logo-container {
+  display: flex;
+  align-items: center;
+}
+.site-header .logo-container .logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+}
+.site-header .logo-container .site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333333;
+  font-weight: 700;
+}
+.site-header .main-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+.site-header .main-nav ul li {
+  margin-left: 2rem;
+}
+.site-header .main-nav ul li a {
+  padding: 0.5rem 0;
+  font-weight: 500;
+  position: relative;
+  color: #333333;
+}
+.site-header .main-nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #911414;
+  transition: width 0.3s ease-in-out;
+}
+.site-header .main-nav ul li a:hover::after, .site-header .main-nav ul li a.active::after {
+  width: 100%;
+}
+.site-header .main-nav ul li a.active {
+  font-weight: 700;
+  color: #911414;
+}
+
+.banner {
+  margin-top: 1rem;
+}
+.banner img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 767.98px) {
+  .banner img {
+    height: 250px;
+  }
+}
+
+.widget {
+  background-color: rgb(239.7, 231.2, 227.8);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #ede3df;
+}
+.widget .widget-title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #911414;
+  font-size: 1.2rem;
+}
+.widget ul {
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 0;
+}
+.widget ul li {
+  margin-bottom: 0.75rem;
+}
+.widget ul li:last-child {
+  margin-bottom: 0;
+}
+
+.search-form {
+  display: flex;
+}
+.search-form input {
+  flex-grow: 1;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  border-radius: 6px 0 0 6px;
+}
+.search-form input:focus {
+  outline: none;
+  border-color: #911414;
+}
+.search-form button {
+  border: 1px solid #911414;
+  background-color: #911414;
+  color: #FFFFFF;
+  padding: 0.5rem 1rem;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.search-form button:hover {
+  background-color: rgb(130.5, 18, 18);
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.event-list .event-date {
+  background-color: #911414;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.image-card {
+  text-align: center;
+}
+.image-card img {
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+.image-card img:hover {
+  transform: translateY(-5px);
+}
+
+.collection-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  height: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+.collection-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+.collection-card .card-body {
+  padding: 1rem;
+}
+.collection-card .card-title {
+  color: #911414;
+}
+.collection-card .card-text {
+  font-size: 0.9rem;
+}
+
+.contact-form .form-control {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+.contact-form .form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(145, 20, 20, 0.25);
+  border-color: #911414;
+}
+.contact-form .form-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.contact-form .btn, .contact-form .btn-reset, .contact-form .btn-submit {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 2px solid;
+  transition: all 0.3s ease-in-out;
+}
+.contact-form .btn-submit {
+  background-color: #911414;
+  border-color: #911414;
+  color: #FFFFFF;
+}
+.contact-form .btn-submit:hover {
+  background-color: rgb(130.5, 18, 18);
+  border-color: rgb(130.5, 18, 18);
+}
+.contact-form .btn-reset {
+  background-color: transparent;
+  border-color: #6c757d;
+  color: #6c757d;
+}
+.contact-form .btn-reset:hover {
+  background-color: #6c757d;
+  color: #FFFFFF;
+}
+
+.map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.site-footer {
+  background-color: #333333;
+  color: rgb(112.2, 112.2, 112.2);
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+.site-footer p {
+  margin: 0;
+}
+.site-footer .social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+.site-footer .social-links a {
+  color: rgb(112.2, 112.2, 112.2);
+  font-size: 1.2rem;
+}
+.site-footer .social-links a:hover {
+  color: #FFFFFF;
+}
+
+@media (max-width: 991.98px) {
+  .site-header .main-nav {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .site-header .main-nav ul {
+    justify-content: center;
+  }
+  .logo-container {
+    justify-content: center;
+    width: 100%;
+  }
+  aside {
+    margin-top: 2rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .site-header .logo-container {
+    flex-direction: column;
+  }
+  .site-header .logo-container .site-title {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+  }
+  .site-header .main-nav ul li {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .site-footer {
+    text-align: center;
+  }
+  .site-footer .social-links {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+
+/*# sourceMappingURL=mystyle.css.map */

@@ -1,0 +1,331 @@
+@use "sass:color"
+
+// 1. VARIABLES
+// Định nghĩa các biến cho màu sắc, font chữ, và các giá trị khác để dễ dàng tái sử dụng.
+$primary-color: #911414 // Màu đỏ đất (đã cập nhật)
+$secondary-color: #ede3df // Màu be nhạt
+$bg-color: #ffffff // Màu nền trắng
+$text-color: #333333
+$light-text-color: #FFFFFF
+$border-color: #ddd
+$base-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+$base-border-radius: 12px // Bo góc
+$base-spacing: 1rem
+
+// 2. MIXINS
+// Tạo các mixin cho các đoạn code lặp lại.
+@mixin transition($property: all, $duration: 0.3s, $timing: ease-in-out)
+  transition: $property $duration $timing
+
+@mixin card-shadow
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08)
+
+// 3. BASE & GENERAL STYLES
+// Các style cơ bản cho toàn trang.
+body
+  font-family: $base-font-family
+  background-color: $bg-color
+  color: $text-color
+  line-height: 1.7
+
+a
+  color: $primary-color
+  text-decoration: none
+  @include transition
+
+  &:hover
+    color: color.scale($primary-color, $lightness: -10%)
+    text-decoration: none
+
+h1, h2, h3, h4, h5, h6
+  font-weight: 600
+
+img
+  max-width: 100%
+  height: auto
+
+// Lớp dùng chung cho các khối nội dung chính
+.content-block
+  margin-bottom: $base-spacing * 2.5
+
+// 4. LAYOUT: HEADER
+.site-header
+  padding: $base-spacing 0
+  background: $bg-color
+  border-bottom: 1px solid $border-color
+
+  // Nested layout
+  .logo-container
+    display: flex
+    align-items: center
+
+    .logo
+      width: 50px
+      height: 50px
+      margin-right: $base-spacing
+
+    .site-title
+      margin: 0
+      font-size: 1.5rem
+      color: $text-color
+      font-weight: 700
+
+  .main-nav
+    ul
+      margin: 0
+      padding: 0
+      list-style: none
+      display: flex
+
+      li
+        margin-left: $base-spacing * 2
+        
+        a
+          padding: 0.5rem 0
+          font-weight: 500
+          position: relative
+          color: $text-color
+
+          // Hiệu ứng gạch chân khi hover hoặc active
+          &::after
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 0
+            width: 0
+            height: 2px
+            background-color: $primary-color
+            @include transition(width)
+          
+          &:hover::after, &.active::after
+            width: 100%
+
+          // Đơn giản hóa, chỉ định style cho trạng thái active
+          &.active
+            font-weight: 700
+            color: $primary-color
+
+// 5. BANNER
+.banner
+  margin-top: $base-spacing
+  
+  img
+    width: 100%
+    height: 500px
+    object-fit: cover // Đảm bảo hình ảnh lấp đầy khung chứa mà không bị méo
+    display: block
+
+  // Điều chỉnh chiều cao cho màn hình nhỏ hơn
+  @media (max-width: 767.98px)
+    img
+      height: 250px
+
+// 6. LAYOUT: SIDEBAR
+.widget
+  background-color: color.scale($secondary-color, $lightness: 15%)
+  padding: $base-spacing * 1.5
+  margin-bottom: $base-spacing * 1.5
+  border-radius: $base-border-radius
+  border: 1px solid $secondary-color
+
+  .widget-title
+    margin-top: 0
+    margin-bottom: $base-spacing
+    padding-bottom: $base-spacing * 0.5
+    border-bottom: 2px solid $primary-color
+    font-size: 1.2rem
+  
+  // Áp dụng cho nhiều danh sách trong widget
+  ul
+    padding-left: 0
+    list-style: none
+    margin-bottom: 0
+
+    li
+      margin-bottom: $base-spacing * 0.75
+      &:last-child
+        margin-bottom: 0
+
+// Search form widget
+.search-form
+  display: flex
+  input
+    flex-grow: 1
+    border: 1px solid $border-color
+    padding: 0.5rem
+    border-radius: 6px 0 0 6px
+    &:focus
+      outline: none
+      border-color: $primary-color
+  button
+    border: 1px solid $primary-color
+    background-color: $primary-color
+    color: $light-text-color
+    padding: 0.5rem 1rem
+    border-radius: 0 6px 6px 0
+    cursor: pointer
+    @include transition
+    &:hover
+      background-color: color.scale($primary-color, $lightness: -10%)
+
+// Video widget
+.video-container
+  position: relative
+  padding-bottom: 56.25% /* 16:9 aspect ratio */
+  height: 0
+  overflow: hidden
+  border-radius: 6px
+  iframe
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+// Event list
+.event-list .event-date
+  background-color: $primary-color
+  color: $light-text-color
+  padding: 2px 8px
+  border-radius: 4px
+  margin-right: 8px
+  font-weight: bold
+
+// 7. PAGE SPECIFIC: HOME
+.image-card
+  text-align: center
+  img
+    border-radius: $base-border-radius
+    margin-bottom: $base-spacing * 0.5
+    @include card-shadow
+    @include transition
+    &:hover
+      transform: translateY(-5px)
+
+// 8. PAGE SPECIFIC: COLLECTION
+// Sử dụng @extend
+.collection-card
+  border-radius: $base-border-radius
+  overflow: hidden
+  background: $bg-color
+  height: 100%
+  @include card-shadow
+  @include transition
+
+  &:hover
+    transform: translateY(-8px)
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12)
+
+  .card-body
+    padding: $base-spacing
+
+  .card-title
+    color: $primary-color
+
+  .card-text
+    font-size: 0.9rem
+
+// 9. PAGE SPECIFIC: CONTACT
+.contact-form
+  .form-control
+    padding: 0.75rem 1rem
+    border-radius: 8px
+    &:focus
+      box-shadow: 0 0 0 0.25rem rgba($primary-color, 0.25)
+      border-color: $primary-color
+
+  .form-buttons
+    margin-top: $base-spacing
+    display: flex
+    gap: $base-spacing
+
+  .btn
+    padding: 0.75rem 1.5rem
+    border-radius: 8px
+    font-weight: bold
+    border: 2px solid
+    @include transition
+
+  .btn-submit
+    @extend .btn // Áp dụng @extend
+    background-color: $primary-color
+    border-color: $primary-color
+    color: $light-text-color
+
+    &:hover
+      background-color: color.scale($primary-color, $lightness: -10%)
+      border-color: color.scale($primary-color, $lightness: -10%)
+  
+  .btn-reset
+    @extend .btn
+    background-color: transparent
+    border-color: #6c757d
+    color: #6c757d
+
+    &:hover
+      background-color: #6c757d
+      color: $light-text-color
+
+.map-container
+  border-radius: $base-border-radius
+  overflow: hidden
+  border: 1px solid $border-color
+  @include card-shadow
+
+// 10. LAYOUT: FOOTER
+.site-footer
+  background-color: $text-color
+  color: color.scale($text-color, $lightness: 30%) 
+  // function có sẵn
+  padding: $base-spacing * 2 0
+  margin-top: $base-spacing * 3
+
+  p
+    margin: 0
+
+  .social-links
+    list-style: none
+    padding: 0
+    margin: 0
+    display: flex
+    justify-content: flex-end
+    gap: $base-spacing
+
+    a
+      color: color.scale($text-color, $lightness: 30%)
+      font-size: 1.2rem
+      &:hover
+        color: $light-text-color
+
+// 11. RESPONSIVE DESIGN
+@media (max-width: 991.98px)
+  .site-header .main-nav
+    // Basic responsive nav for smaller screens
+    width: 100%
+    margin-top: $base-spacing
+    ul
+      justify-content: center
+  
+  .logo-container
+    justify-content: center
+    width: 100%
+  
+  aside
+    margin-top: $base-spacing * 2
+
+@media (max-width: 767.98px)
+  .site-header
+    .logo-container
+      flex-direction: column
+      .site-title
+        margin-top: $base-spacing * 0.5
+        font-size: 1.2rem
+    .main-nav ul li
+      margin-left: $base-spacing
+      margin-right: $base-spacing
+
+  .site-footer
+    text-align: center
+    .social-links
+      justify-content: center
+      margin-top: $base-spacing
