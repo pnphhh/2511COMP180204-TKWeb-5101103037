@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Tiền Bán Hàng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 9px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #2d8ec27c;
+        }
+        input[type="number"] {
+            width: 80px;
+            padding: 5px;
+            text-align: center;
+        }
+        input[type="number"]:disabled {
+            background-color: #eee;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .total-section {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .ok-btn { background-color: #28a745; }
+        .reset-btn { background-color: #ff2c07; color: #000; }
+        .print-btn { background-color: #007bff; }
+        .move-btn { background-color: #c2299c;}
+        .move-btn a { text-decoration: none; color: #ffffff;}
+
+        @media print {
+            body {
+                border: none;
+            }
+            h1 {
+                color: #000;
+            }
+            .controls button, .vat-label {
+                /* Ẩn các nút bấm và nhãn VAT khi in */
+                display: none;
+            }
+            .total-section {
+                /* Di chuyển phần tổng tiền qua phải khi in */
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bảng Tính Tiền Bán Hàng</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên hàng hóa</th>
+                <th>Số lượng có</th>
+                <th>Số lượng mua</th>
+                <th>Đơn giá ($)</th>
+                <th>Chọn mua</th>
+            </tr>
+        </thead>
+        <tbody id="product-table-body">
+            </tbody>
+    </table>
+
+    <div class="controls">
+        <div>
+            <button class="ok-btn" onclick="calculateTotal()">OK</button>
+            <button class="reset-btn" onclick="resetForm()">Nhập lại</button>
+            <button class="print-btn" onclick="window.print()">In trang</button>
+            <button class="move-btn"><a href="index.html">Trang trước</a></button>
+            
+        </div>
+        <div class="total-section">
+            <label class="vat-label">
+                <input type="checkbox" id="vat-checkbox"> VAT
+            </label>
+            <span>Tổng cộng: <span id="total-cost">0</span> $</span>
+        </div>
+    </div>
+
+    <script>
+        // Dữ liệu về các sản phẩm
+        const products = [
+            { id: 1, name: 'CPU', stock: 14, price: 120 },
+            { id: 2, name: 'HDD', stock: 14, price: 10 },
+            { id: 3, name: 'RAM', stock: 12, price: 29 },
+            { id: 4, name: 'ROM', stock: 23, price: 130 }
+        ];
+
+        // Hàm để tạo các hàng sản phẩm trong bảng
+        function renderProducts() {
+            const tableBody = document.getElementById('product-table-body');
+            let content = '';
+            for (const product of products) {
+                content += `
+                    <tr id="row-${product.id}">
+                        <td>${product.id}</td>
+                        <td>${product.name}</td>
+                        <td class="stock">${product.stock}</td>
+                        <td>
+                            <input type="number" class="quantity" id="qty-${product.id}" min="0" disabled>
+                        </td>
+                        <td class="price">${product.price}</td>
+                        <td>
+                            <input type="checkbox" class="select" onchange="toggleQuantityInput(${product.id})">
+                        </td>
+                    </tr>
+                `;
+            }
+            tableBody.innerHTML = content;
+        }
+
+        // Hàm bật/tắt ô "Số lượng mua" khi checkbox được chọn
+        function toggleQuantityInput(productId) {
+            const row = document.getElementById(`row-${productId}`);
+            const checkbox = row.querySelector('.select');
+            const quantityInput = row.querySelector('.quantity');
+
+            if (checkbox.checked) {
+                quantityInput.disabled = false;
+                quantityInput.focus(); // Tự động trỏ vào ô số lượng
+            } else {
+                quantityInput.disabled = true;
+                quantityInput.value = ''; // Xóa số lượng đã nhập
+            }
+        }
+
+        // Hàm tính tổng tiền khi nhấn nút "OK"
+        function calculateTotal() {
+            let total = 0;
+            let isValid = true; // Biến kiểm tra dữ liệu hợp lệ
+
+            for (const product of products) {
+                const row = document.getElementById(`row-${product.id}`);
+                const checkbox = row.querySelector('.select');
+
+                if (checkbox.checked) {
+                    const quantityInput = row.querySelector('.quantity');
+                    const quantity = parseInt(quantityInput.value);
+
+                    // Kiểm tra tính đúng đắn của số lượng mua
+                    if (isNaN(quantity) || quantity <= 0) {
+                        alert(`Vui lòng nhập số lượng mua hợp lệ cho sản phẩm ${product.name}.`);
+                        isValid = false;
+                        break; // Dừng vòng lặp nếu có lỗi
+                    }
+                    if (quantity > product.stock) {
+                        alert(`Số lượng mua của ${product.name} không được vượt quá số lượng có (${product.stock}).`);
+                        isValid = false;
+                        break;
+                    }
+                    
+                    // Cộng dồn vào tổng tiền
+                    total += quantity * product.price;
+                }
+            }
+
+            if (isValid) {
+                // Kiểm tra xem có tính VAT không
+                const vatCheckbox = document.getElementById('vat-checkbox');
+                if (vatCheckbox.checked) {
+                    total *= 1.10; 
+                }
+
+                // Hiển thị tổng tiền
+                document.getElementById('total-cost').textContent = total.toFixed(2); // Làm tròn 2 chữ số thập phân
+            }
+        }
+
+        function resetForm() {
+            location.reload();
+        }
+
+        window.onload = renderProducts;
+
+    </script>
+</body>
+</html>

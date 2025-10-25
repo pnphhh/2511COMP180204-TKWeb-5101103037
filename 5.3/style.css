@@ -1,0 +1,145 @@
+.hh-header{
+    position: relative;
+    height: 170px;
+}
+
+.hh-logo{
+    position: absolute;
+    right: 0px;
+    width: 230px;
+}
+
+.hh-company{
+    font-family: Impact;
+    font-size: 35px;
+    text-shadow: 0 0 2px black;
+    position: absolute;
+    top: 45px;
+    padding-bottom: 2px;
+    border-bottom: 1px dotted gray;
+}
+
+.hh-slogan{
+    position: absolute;
+    top: 100px;
+}
+
+.hh-sheet{
+    box-shadow: 0 0 5px lightgray;
+    border-radius: 10px;
+    padding: 5px;
+    position: relative;
+    top: -10px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.main{
+    margin: 10px
+}
+
+.sidebar{
+    margin-top: 10px;
+}
+
+.hh-body {
+    padding: 5px;
+}
+
+.hh-cart ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    font-size: smaller;
+}
+
+.hh-cart img {
+    height: 30%;
+    width: 30%;
+}
+
+.hh-card {
+    margin: 7px 0;
+}
+
+.hh-product {
+    text-align: center;
+    padding: 5px 2px;
+    display: inline-block;
+}
+
+.hh-product .card-body img{
+    height: 150px;
+    max-width: 95%;
+}
+
+@media (max-width: 768px) {
+
+    /* =========================================
+       1. Sửa Header (Bỏ 'position: absolute')
+       ========================================= */
+    .hh-header {
+        height: auto; /* Chiều cao tự động */
+        display: flex;
+        flex-direction: column; /* Xếp dọc */
+        align-items: center; /* Căn giữa mọi thứ */
+        padding-bottom: 15px;
+    }
+
+    /* Hủy 'position: absolute' và căn giữa */
+    .hh-logo,
+    .hh-company,
+    .hh-slogan {
+        position: static; /* Hủy 'position: absolute' */
+        text-align: center; /* Căn giữa nội dung */
+    }
+
+    .hh-logo {
+        width: 180px; /* Thu nhỏ logo một chút */
+        right: auto; /* Reset vị trí */
+    }
+
+    .hh-company {
+        font-size: 28px; /* Thu nhỏ cỡ chữ */
+        top: auto; /* Reset vị trí */
+    }
+
+    .hh-slogan {
+        top: auto; /* Reset vị trí */
+    }
+
+    /* =========================================
+       2. Sửa bố cục 2 cột (Main/Sidebar)
+       ========================================= */
+    .hh-sheet {
+        grid-template-columns: 1fr; /* Chuyển 2 cột (70% 30%) thành 1 cột */
+        top: 0; /* Reset lại vị trí top */
+    }
+
+    .main {
+        margin: 0; /* Reset lề */
+    }
+
+    .sidebar {
+        margin-top: 20px; /* Thêm khoảng cách khi xếp dọc */
+    }
+
+    /* =========================================
+       3. Sửa bố cục sản phẩm
+       ========================================= */
+    .hh-product {
+        display: block; /* Chuyển từ inline-block thành block */
+        width: 90%; /* Đặt chiều rộng */
+        margin: 10px auto; /* Tự động căn giữa */
+    }
+
+    .hh-product .card-body img {
+        height: auto; /* Chiều cao tự động cho ảnh */
+        max-width: 80%;
+    }
+}
+
+
+
+

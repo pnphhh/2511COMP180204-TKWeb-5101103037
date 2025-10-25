@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV của PHAM NGOC PHUONG HOANG</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .cv-container {
+            display: flex;
+            width: 900px;
+            max-width: 100%;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(108, 68, 68, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .left-column {
+            width: 40%;
+            background-color: #11055785;
+            color: #ecf0f1;
+            padding: 30px;
+        }
+        
+        .avatar-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .avatar {
+            width: 150px;
+            height: 150px;
+            background-color: #95b0c29b;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            color: #2c3e50;
+        }
+
+        .avatar img{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            border: 5px solid #2c3e5068;
+        }
+
+        .left-column h2 {
+            border-bottom: 2px solid #061b29ac;
+            padding-bottom: 5px;
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 18px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+        }
+        
+        .contact-info i {
+            width: 20px;
+            margin-right: 10px;
+            color: #1f323f;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills-list li {
+            margin-bottom: 15px;
+        }
+
+        .skill-bar {
+            background-color: #7f8c8d;
+            border-radius: 5px;
+            height: 10px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            background-color: #c255947a;
+            height: 100%;
+            border-radius: 5px;
+            width: 0; /* Bắt đầu từ 0 để animation chạy */
+        }
+        
+        .reference p {
+            margin: 5px 0;
+        }
+        .reference {
+            margin-bottom: 20px;
+        }
+
+
+        /* --- Cột bên phải (60%) --- */
+        .right-column {
+            width: 60%;
+            padding: 30px;
+            background-color: #ffffff;
+        }
+        
+        /* hiệu ứng fade in */
+        .right-column .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .header {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 48px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .header .title {
+            margin: 5px 0 0 0;
+            font-size: 20px;
+            color: #7f8c8d;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        hr {
+            border: none;
+            border-top: 3px solid #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .right-column h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 18px;
+        }
+
+        .timeline-item {
+            margin-bottom: 20px;
+        }
+
+        .timeline-item h4 {
+            margin: 0 0 5px 0;
+            color: #34495e;
+        }
+        
+        .timeline-item .period {
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            margin: 0;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* --- RESPONSIVE CHO THIẾT BỊ DI ĐỘNG (GIỮ 2 CỘT) --- */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px 0; /* Giảm padding body */
+            }
+
+            .cv-container {
+                /* KHÔNG đổi flex-direction */
+                width: 95%; /* Cho container hẹp lại một chút */
+                /* box-shadow: none; Bỏ bóng đổ nếu muốn */
+            }
+
+            /* Điều chỉnh lại chiều rộng 2 cột, VẪN GIỮ TỔNG 100% */
+            .left-column {
+                width: 45%; /* Tăng nhẹ cột trái */
+                padding: 15px; /* Giảm padding */
+                overflow-wrap: break-word; /* Cho phép chữ dài xuống dòng */
+            }
+
+            .right-column {
+                width: 55%; /* Giảm nhẹ cột phải */
+                padding: 15px; /* Giảm padding */
+                overflow-wrap: break-word; /* Cho phép chữ dài xuống dòng */
+            }
+
+            /* Thu nhỏ các thành phần bên trong */
+            .avatar {
+                width: 100px;
+                height: 100px;
+            }
+             .avatar img {
+                 width: 100px;
+                 height: 100px;
+             }
+
+            .left-column h2,
+            .right-column h2 {
+                font-size: 14px; /* Thu nhỏ tiêu đề section */
+            }
+
+             .contact-info p,
+             .skills-list li,
+             .reference p {
+                 font-size: 0.85rem; /* Thu nhỏ chữ cột trái */
+             }
+             .contact-info i {
+                 margin-right: 5px; /* Giảm khoảng cách icon */
+             }
+             .skill-bar {
+                 height: 8px; /* Thanh skill mỏng hơn */
+             }
+
+            .header h1 {
+                font-size: 24px; /* Thu nhỏ tên đáng kể */
+                line-height: 1.2;
+            }
+            .header .title {
+                font-size: 14px; /* Thu nhỏ chức danh */
+                letter-spacing: 1px;
+            }
+            hr {
+                margin-bottom: 20px; /* Giảm khoảng cách dưới HR */
+            }
+
+            .timeline-item h4 {
+                font-size: 0.95rem; /* Thu nhỏ tiêu đề timeline */
+            }
+            .timeline-item .period,
+            .timeline-item p {
+                font-size: 0.85rem; /* Thu nhỏ chữ timeline */
+            }
+        }
+
+        /* Thêm breakpoint cho màn hình rất nhỏ nếu cần */
+        @media (max-width: 480px) {
+             .left-column {
+                 width: 100%; /* Có thể cân nhắc xếp dọc ở đây */
+                 border-bottom: 1px solid #ddd;
+             }
+             .right-column {
+                 width: 100%;
+             }
+             .cv-container {
+                 flex-direction: column; /* Xếp dọc ở màn hình cực nhỏ */
+             }
+             .header h1 {
+                 font-size: 20px;
+             }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        <div class="left-column">
+            <div class="avatar-container">
+                <div class="avatar">
+                    <img src="hehe.jpg">
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>About Me</h2>
+                <p>
+                    "I love pink. I enjoy listening to music, watching cartoons, and reading novels. I'm also quite skilled at crocheting. My current goals are to crochet all amigurumi chibi dolls of my favorite character and to achieve a TOEIC score of over 600."
+                </p>
+            </div>
+
+            <div class="section contact-info">
+                <h2>Contact Us</h2>
+                <p><i class="fa-solid fa-location-dot"></i> Address: 280 An Duong Vuong, Cho Quan Ward, Ho Chi Minh City </p>
+                <p><i class="fa-solid fa-phone"></i> Phone: 0931542007</p>
+                <p><i class="fa-solid fa-envelope"></i> Email: 5101103037@student.hcmue.edu.vn</p>
+            </div>
+
+            <div class="section">
+                <h2>Skills</h2>
+                <ul class="skills-list">
+                    <li>
+                        Photoshop
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="65%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        Javascript
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="25%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        HTML
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="75%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        CSS
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="70%"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Reference Person</h2>
+                <div class="reference">
+                    <p><b>Mr. Hien Luong - Company</b></p>
+                    <p>Position: Contact:</p>
+                </div>
+                <div class="reference">
+                     <p><b>Mr. Khiet Luong - Company</b></p>
+                     <p>Position: Contact:</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="right-column">
+            <div class="header">
+                <h1>PHAM NGOC PHUONG HOANG</h1>
+                <p class="title">Student</p>
+            </div>
+            <hr>
+            
+            <div class="section">
+                <h2>Education</h2>
+                <div class="timeline-item">
+                    <div class="period">2022 - 2025</div>
+                    <h4>Nguyen Cong Tru High School</h4>
+                    <p>"Maintained 'Excellent Student' standing for three consecutive years with a consistent semester GPA above 8.0, coupled with active participation and high achievements in school and Youth Union activities."</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Experience</h2>
+                <div class="timeline-item">
+                    <div class="period">2013 - 2018</div>
+                    <h4>Primary school student</h4>
+                </div>
+                 <div class="timeline-item">
+                    <div class="period">2018 - 2022</div>
+                    <h4>Junior High School Student</h4>
+                </div>
+                 <div class="timeline-item">
+                    <div class="period">2022 - 2025</div>
+                    <h4>High School Student</h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            // ---- ANIMATE THANH SKILLS ----
+            $('.skill-level').each(function(){
+                var skillPercent = $(this).attr('data-level'); // Lấy % từ thuộc tính data-level
+                // Hàm animate của jQuery để tạo hiệu ứng
+                $(this).animate({
+                    width: skillPercent
+                }, 1500); // 1500ms = 1.5 giây
+            });
+
+
+            // ----  FADE IN KHI CUỘN CHUỘT ----
+            // Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    // Nếu phần tử đi vào trong màn hình (viewport)
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1 // Kích hoạt khi 10% phần tử được nhìn thấy
+            });
+
+            // Lấy tất cả các section bên cột phải và theo dõi chúng
+            const sections = document.querySelectorAll('.right-column .section');
+            sections.forEach((section) => {
+                observer.observe(section);
+            });
+
+        });
+    </script>
+
+</body>
+</html>

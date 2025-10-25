@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ cá vui nhộn</title>
+    <style>
+        body {
+        background-color: #0099cc;
+        overflow: hidden;
+        margin: 0;
+        }
+
+        .aquarium {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-color: #0099cc;
+        background-size: cover;
+        overflow: hidden;
+        }
+
+        .diver {
+        position: absolute;
+        width: 100px;
+        }
+
+        .diver1 {
+        top: 100px;
+        animation: swimRight 15s linear infinite;
+        }
+
+        .diver2 {
+        top: 250px;
+        animation: swimLeft 12s linear infinite;
+        }
+
+        .diver3 {
+        top: 400px;
+        animation: swimRight 18s linear infinite;
+        }
+
+        .shark {
+        position: absolute;
+        width: 360px;
+        top: 200px;
+        animation: swimLeft 5s linear infinite;
+        }
+
+        .turtle {
+        position: absolute;
+        width: 100px;
+        top: 300px;
+        animation: swimRight 40s linear infinite;
+        }
+
+        .fish {
+        position: absolute;
+        width: 80px;
+        top: 150px;
+        animation: swimLeft 18s linear infinite;
+        }
+
+        .faint {
+        position: absolute;
+        width: 100px;
+        top: 150px;
+        animation: swimRight 25s linear infinite;
+        }
+
+        @keyframes swimRight {
+        0% { left: -200px; transform: scaleX(1); }
+        50% { top: calc(100% - 200px); }
+        100% { left: 100%; transform: scaleX(1); }
+        }
+
+        @keyframes swimLeft {
+        0% { left: 100%; transform: scaleX(-1); }
+        50% { top: calc(50%); }
+        100% { left: -200px; transform: scaleX(-1); }
+        }
+
+        /* =================================
+           1. CSS TƯƠNG THÍCH THIẾT BỊ
+        ================================= */
+        .diver {
+            position: absolute;
+            width: 10vw; /* 10% chiều rộng màn hình */
+            min-width: 80px; /* Kích thước tối thiểu */
+        }
+        .diver1 {
+            top: 10%; /* Vị trí tương đối */
+            animation: swim-loop 15s linear infinite;
+        }
+        .diver2 {
+            top: 35%;
+            animation: swim-loop 12s linear infinite ; /* bơi ngược */
+        }
+        .diver3 {
+            top: 60%;
+            animation: swim-loop 18s linear infinite;
+        }
+        .shark {
+            position: absolute;
+            width: 30vw; /* Cá mập to */
+            min-width: 300px;
+            top: 25%;
+            animation: swim-loop 8s linear infinite;
+        }
+        .turtle {
+            position: absolute;
+            width: 12vw;
+            min-width: 80px;
+            top: 75%; /* Rùa bơi gần đáy */
+            animation: swim-loop 50s linear infinite;
+        }
+        .fish {
+            position: absolute;
+            width: 8vw;
+            min-width: 0px;
+            top: 20%;
+            animation: swim-loop 18s linear infinite;
+        }
+        .faint {
+            position: absolute;
+            width: 10vw;
+            min-width: 80px;
+            top: 50%;
+            animation: swim-loop 15s linear infinite;
+        }
+
+        /* =================================
+           2. KEYFRAME "PING-PONG" MỚI
+        ================================= */
+        @keyframes swim-loop {
+            0% {
+                /* Bắt đầu bên ngoài rìa trái, mặt quay phải */
+                left: -15vw; /* Dùng vw để tương thích */
+                transform: scaleX(1);
+            }
+            49.9% {
+                /* Vẫn quay phải khi gần đến rìa phải */
+                transform: scaleX(1);
+            }
+            50% {
+                /* Tới rìa phải, lật mặt (quay trái) */
+                left: calc(100% + 5vw);
+                transform: scaleX(-1);
+            }
+            99.9% {
+                /* Vẫn quay trái khi gần về rìa trái */
+                transform: scaleX(-1);
+            }
+            100% {
+                /* Về lại rìa trái, lật mặt (quay phải) */
+                left: -15vw;
+                transform: scaleX(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="aquarium">
+        <img src="diver1.png" class="diver diver1">
+        <img src="diver2.png" class="diver diver2">
+        <img src="diver3.png" class="diver diver3">
+        <img src="shark.png" class="shark">
+        <img src="turtle.png" class="turtle">
+        <img src="goldFishSchool.png" class="fish">
+        <img src="faintSchool.png" class="faint">
+    </div>
+</body>
+</html>

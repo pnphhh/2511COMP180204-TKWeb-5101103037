@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lễ Hội Halloween Ma Quái</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="bgm.mp3" type="audio/mp3">
+    </audio>
+
+    <header>
+        <img src="hehe.jfif" alt="Logo Halloween" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="history.html">Lịch Sử</a></li>
+                <li><a href="products.html">Gian Hàng</a></li>
+                <li><a href="gallery.html">Bộ Sưu Tập</a></li>
+                <li><a href="contact.html">Liên Hệ</a></li>
+                <li><a href="register.html" class="btn-register">Đăng Ký Ngay!</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-container">
+            <h1>Đăng Ký Tham Gia Lễ Hội</h1>
+            <p>Nhanh tay điền thông tin để giữ chỗ tại sự kiện kinh dị nhất năm!</p>
+            <form action="#">
+                <div class="form-group">
+                    <label for="name">Họ và Tên:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số điện thoại:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="guests">Số lượng người tham dự:</label>
+                    <input type="number" id="guests" name="guests" min="1" value="1" required>
+                </div>
+                <button type="submit" class="btn-submit">Gửi Đăng Ký</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Mây Trắng Tiêu Đen.
+            <i>Unknown Till the end.</i>
+    </footer>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

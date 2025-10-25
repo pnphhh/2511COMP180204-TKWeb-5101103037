@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng Quản Lý Sản Phẩm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #333;
+        }
+        #add-form-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 30px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        #product-input {
+            padding: 8px;
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        button {
+            padding: 9px 15px;
+            border: none;
+            color: white;
+            background-color: #187c97;
+            cursor: pointer;
+            border-radius: 3px;
+            margin-left: 5px;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        .delete-btn {
+            background-color: #cb3d38;
+        }
+        .move {
+            background-color: #c2299c;
+        }
+        .move a {
+            text-decoration: none;
+            color: #fff;
+        }
+        #product-count {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        #product-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #product-table th,
+        #product-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        #product-table tr:nth-child(even){background-color: #f2f2f2;}
+        #product-table th {
+            background-color: #eee;
+            font-weight: bold;
+        }
+        .product-name {
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .product-name:hover {
+            background-color: #e9ecef;
+            color: #2f00ff;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="add-form-container">
+        <h2 id="form-title">Add New Product</h2>
+        <input type="text" id="product-input" placeholder="New Product">
+        <button id="action-button" onclick="addProduct()">Add</button>
+        <button class="move"><a href="tinh_tien.html">Trang sau</a></button>
+    </div>
+
+    <div>
+        <h2>Display All Product</h2>
+        <p id="product-count"></p>
+        <table id="product-table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th colspan="2" style="text-align: center;">Action</th>
+                </tr>
+            </thead>
+            <tbody id="product-list">
+            </tbody>
+        </table>
+    </div>   
+
+    <script>
+        let products = [
+            "Sony Xperia", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4",
+            "Apple iPhone 6S", "Xiaomi Mi 5s Plus", "Apple iPhone 8 Plus",
+            "Fujitsu F-04E", "Oppo A71"
+        ];
+        let editingIndex = -1;
+
+        function displayProducts() {
+            const productListBody = document.getElementById('product-list');
+            const productCount = document.getElementById('product-count');
+            let tableContent = '';
+            productCount.innerHTML = `${products.length} products`;
+
+            for (let i = 0; i < products.length; i++) {
+                tableContent += `
+                    <tr>
+                        <td class="product-name" onclick="editProduct(${i})">${products[i]}</td>
+                        <td><button onclick="editProduct(${i})">Edit</button></td>
+                        <td><button class="delete-btn" onclick="deleteProduct(${i})">Delete</button></td>
+                    </tr>
+                `;
+            }
+            productListBody.innerHTML = tableContent;
+            resetForm();
+        }
+
+        function addProduct() {
+            const productNameInput = document.getElementById('product-input');
+            const newProductName = productNameInput.value.trim();
+            if (newProductName) {
+                products.push(newProductName);
+                displayProducts();
+            } else {
+                alert("Vui lòng nhập tên sản phẩm.");
+            }
+        }
+
+        function deleteProduct(index) {
+            if (confirm(`Bạn có chắc muốn xóa sản phẩm "${products[index]}"?`)) {
+                products.splice(index, 1);
+                displayProducts();
+            }
+        }
+
+        function editProduct(index) {
+            editingIndex = index;
+            const productNameInput = document.getElementById('product-input');
+            const actionButton = document.getElementById('action-button');
+            const formTitle = document.getElementById('form-title');
+
+            productNameInput.value = products[index];
+            formTitle.innerText = `Edit Product`;
+            actionButton.innerText = 'Update';
+            actionButton.setAttribute('onclick', `updateProduct()`);
+            productNameInput.focus();
+        }
+
+        function updateProduct() {
+            const productNameInput = document.getElementById('product-input');
+            const updatedName = productNameInput.value.trim();
+            if (updatedName && editingIndex > -1) {
+                products[editingIndex] = updatedName;
+                displayProducts();
+            } else {
+                alert("Tên sản phẩm không được để trống.");
+            }
+        }
+
+        function resetForm() {
+            const productNameInput = document.getElementById('product-input');
+            const actionButton = document.getElementById('action-button');
+            const formTitle = document.getElementById('form-title');
+
+            productNameInput.value = '';
+            formTitle.innerText = 'Add New Product';
+            actionButton.innerText = 'Add';
+            actionButton.setAttribute('onclick', 'addProduct()');
+            editingIndex = -1;
+        }
+
+        window.onload = displayProducts;
+    </script>
+
+</body>
+</html>

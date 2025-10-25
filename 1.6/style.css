@@ -1,0 +1,378 @@
+    body{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, Helvetica, serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: rgb(240, 240, 240);
+    }
+
+    .menu{
+        display: flex;
+        justify-content: center;
+        background-color: rgb(127, 134, 189);
+        height: 50px;
+        width: 100%;
+    }
+
+    .menu li{
+        list-style-type:none;
+        display: inline-block;
+    }
+
+    .menu li a {
+        text-decoration: none;
+        color: white;
+        padding: 0 30px;
+        line-height: 50px;
+        display: block;
+    }
+
+    .menu li a:hover{
+        color: rgb(53, 35, 42);
+        background-color: rgb(180, 189, 215);
+    }
+
+    .banner{
+        position: sticky;
+        color: white;
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        height: auto;
+    }
+
+    .title{
+        text-align: center;
+        color: rgba(12, 5, 32, 0.725);
+        margin-top: 20px;
+    }
+   
+    .subtitle{
+        text-align: center;
+        color: rgba(12, 5, 32, 0.725);
+        margin-top: -8px;
+        font-weight: lighter;
+    }
+
+    .footer{
+        text-align: center;
+        background-color: rgb(127, 134, 189);
+        color: white;
+        height: 40px;
+        line-height: 40px;
+        position: relative;
+        width: 100%;
+        margin-top: 5px;
+        padding: 3px;
+        
+    }
+
+    .social li{
+        list-style-type: none;
+        display: inline;
+        float: right;     
+    }
+
+    .social a{
+        color: rgb(39, 61, 116);
+        padding: 0 5px;
+    }
+
+    .social a:hover{
+        color: black;
+    }
+
+    .container{
+        width: 90%;
+        margin-top: 20px;
+        min-height: 400px;
+        background-color: white;
+        border: 1px solid rgb(220, 220, 220);
+        border-radius: 8px;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 70% 30%;
+        grid-gap: 20px;
+
+    }
+    
+    .main{
+        background-color: #f2f5f8;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .sidebar{
+        background-color: #c7c8dbbf;
+        padding: 20px;
+        border-radius: 5px;
+        margin-right: 20px;
+    }
+        
+    .widget{
+         margin-bottom: 20px;
+        padding: 15px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    
+    button{
+        background-color: rgb(127, 134, 189);
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    h1, h2, h3, h4, h5{
+        font-weight: bold;
+        text-align: center;
+    }
+
+    p{
+        margin: 12px 0;
+        line-height: 1.6;
+    }
+
+        .profile-picture {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #adb8e4; 
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .profile-name {
+            margin: 0;
+            font-size: 2.2rem; 
+            color: #2b2d2f; 
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .profile-title {
+            margin: 8px 0 30px 0;
+            font-size: 1.2rem;
+            color: #616161;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        .info-list li {
+            padding: 15px 0;
+            border-bottom: 1px dashed #a8b2c9;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list .icon {
+            color: #a4aac3;
+            width: 35px; 
+            text-align: center;
+            margin-right: 20px;
+            font-size: 1.3rem;
+        }
+
+        .info-list span {
+            font-weight: 600; 
+            color: #444f91;
+            margin-right: 10px;
+        }    
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px dashed #f5d5cb;
+            padding-bottom: 20px;
+        }
+
+        .card-header .icon-header {
+            font-size: 3rem;
+            color: #a7c5eb;
+            margin-bottom: 10px;
+        }
+
+        .card-header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #3b3b3b;
+        }
+
+        .plan-section {
+            margin-bottom: 30px;
+            margin-left: 50px;
+        }
+        
+        .plan-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .plan-section h2 {
+            font-size: 1.5rem;
+            color: #4a4a4a;
+            border-left: 5px solid #2b6a76;
+            padding-left: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .plan-section h2 i {
+            margin-right: 12px;
+            color: #2b6a76;
+        }
+        
+        .plan-section ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .plan-section ul li {
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .plan-section ul li::before {
+            content: '✓';
+            color: #df7183;
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+        }
+
+        /* Table styling for schedule */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .schedule-table th, .schedule-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #154162;
+        }
+
+        .schedule-table thead th {
+            background-color: #f7f9fb;
+            color: #51496c;
+            font-weight: 600;
+        }
+        
+        .schedule-table tbody tr:hover {
+            background-color: #e2cfd7;
+        }
+
+        .schedule-table .time {
+            font-weight: bold;
+            color: #83718c;
+        }
+
+        .notes {
+            background-color: #ede0e38f;
+            border-left: 4px solid #75584f;
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 600px) {
+            .study-plan-card {
+                padding: 20px;
+            }
+            .card-header h1 {
+                font-size: 2rem;
+            }
+            .plan-section h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+/* =========================================
+   10. RESPONSIVE CHO THIẾT BỊ DI ĐỘNG
+   ========================================= */
+
+/* Thêm lớp này để bọc bảng biểu, giúp nó cuộn ngang */
+.table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Khi màn hình có chiều rộng tối đa là 800px (máy tính bảng, điện thoại)
+  thì áp dụng các kiểu CSS bên dưới.
+*/
+@media (max-width: 800px) {
+
+    /* 1. Sửa bố cục: Chuyển 2 cột (70/30) thành 1 cột */
+    .container {
+        grid-template-columns: 100%; /* Hoặc 1fr */
+        width: 95%; /* Tăng chiều rộng 1 chút cho vừa màn hình */
+        padding: 10px;
+    }
+
+    /* 2. Sửa menu: Giữ 1 hàng và cho phép cuộn ngang */
+    .menu {
+        overflow-x: auto; /* Bật thanh cuộn ngang khi cần */
+    }
+    .menu li {
+        flex-shrink: 0; /* Ngăn các mục menu bị bóp nhỏ lại */
+    }
+
+    /* 3. Sửa Sidebar: Bỏ lề không cần thiết */
+    .sidebar {
+        margin-right: 0;
+        margin-top: 20px; /* Thêm khoảng cách với .main khi xếp dọc */
+    }
+
+    /* 4. Sửa lề cho nội dung chính */
+    .plan-section {
+        margin-left: 10px; /* Giảm lề bên trái */
+    }
+
+    /* 5. Sửa kích thước ảnh profile */
+    .profile-picture {
+        width: 120px;
+        height: 120px;
+    }
+    .profile-name {
+        font-size: 1.8rem;
+    }
+
+    /* Phần này bạn đã có ở max-width 600px, 
+      tôi gộp chung vào 800px cho gọn 
+    */
+    .study-plan-card { /* (Lưu ý: class này không có trong code bạn gửi) */
+        padding: 20px;
+    }
+    .card-header h1 {
+        font-size: 2rem;
+    }
+    .plan-section h2 {
+        font-size: 1.3rem;
+    }
+}
+
+    
+    
+    
+
+
