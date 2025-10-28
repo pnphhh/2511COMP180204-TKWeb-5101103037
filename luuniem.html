@@ -1,0 +1,406 @@
+<!-- ==============================================
+    TRƯỜNG ĐẠI HỌC SƯ PHẠM THÀNH PHỐ HỒ CHÍ MINH
+            KHOA CÔNG NGHỆ THÔNG TIN
+                LỚP 51.01.SPTIN.A
+    LỚP HỌC PHẦN 2511COMP180204 - THIẾT KẾ WEB
+                NHÓM ...
+    Thành viên thực hiện:
+        51.01.103.037 Phạm Ngọc Phượng Hoàng
+        51.01.103.075 Trần Thị Như Quỳnh
+        51.01.103.078 Đỗ Nguyễn Tấn Tài
+        51.01.103.099 Nguyễn Ngọc Phương Trâm
+        51.01.103.103 Huỳnh Huy Trường
+================================================== -->
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bảo tàng Lịch sử TP.HCM - Cửa hàng lưu niệm</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Header, nav -->
+    <header class="site-header sticky-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12">
+                    <div class="logo-container">
+                        <img src="./home/logo_btls.png" alt="Logo Bảo tàng" class="logo">
+                        <h1 class="site-title">Bảo tàng Lịch sử Thành phố Hồ Chí Minh</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <nav class="main-nav d-flex justify-content-lg-end justify-content-center">
+                        <ul>
+                            <li><a href="index.html">TRANG CHỦ</a></li>
+                            <li><a href="map.html">QUY TRÌNH THAM QUAN</a></li>
+                            <li><a href="minigame.html">MINIGAME SĂN QUÀ</a></li>
+                            <li><a href="dangki.html">ĐĂNG KÍ THAM QUAN</a></li>
+                            <li><a href="luuniem.html"  class="active">LƯU NIỆM</a></li>
+                            <li>
+                                <a href="#" id="search-toggle" class="search-icon" aria-label="Mở tìm kiếm">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- Tìm kiếm ẩn -->
+            <form class="header-search-form" id="header-search-form">
+                <input type="search" placeholder="Nhập từ khóa..." aria-label="Tìm kiếm">
+                <button type="submit" aria-label="Tìm"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </header>
+
+  <!-- TRANG BÁN HÀNG -->
+  <main class="container my-5">
+    <h2 class="text-center mb-4 text-danger">Cửa hàng lưu niệm</h2>
+    <section class="row g-4">
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/mohinh3dbtls.png" class="card-img-top" alt="Mô hình bảo tàng lịch sử">
+          <div class="card-body text-center">
+            <h5 class="card-title">Mô hình bảo tàng lịch sử</h5>
+            <p class="text-muted">Số lượng: 100</p>
+            <p class="fw-bold text-danger">449.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/xetang.png" class="card-img-top" alt="Mô hình xe tăng">
+          <div class="card-body text-center">
+            <h5 class="card-title">Mô hình xe tăng</h5>
+            <p class="text-muted">Số lượng: 150</p>
+            <p class="fw-bold text-danger">199.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/huyhieubacho.png" class="card-img-top" alt="Huy hiệu bác Hồ">
+          <div class="card-body text-center">
+            <h5 class="card-title">Huy hiệu bác Hồ</h5>
+            <p class="text-muted">Số lượng: 120</p>
+            <p class="fw-bold text-danger">149.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/tranhdiacogaiaodai.png" class="card-img-top" alt="Tranh đĩa cô gái áo dài">
+          <div class="card-body text-center">
+            <h5 class="card-title">Tranh đĩa cô gái áo dài</h5>
+            <p class="text-muted">Số lượng: 100</p>
+            <p class="fw-bold text-danger">111.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/mockhokiniem.png" class="card-img-top" alt="Móc khóa lưu niệm">
+          <div class="card-body text-center">
+            <h5 class="card-title">Móc khóa lưu niệm</h5>
+            <p class="text-muted">Số lượng: 500</p>
+            <p class="fw-bold text-danger">33.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/nonla.png" class="card-img-top" alt="Nón lá truyền thống">
+          <div class="card-body text-center">
+            <h5 class="card-title">Nón lá truyền thống</h5>
+            <p class="text-muted">Số lượng: 200</p>
+            <p class="fw-bold text-danger">69.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/vatdungmaytre.png" class="card-img-top" alt="Đồ dùng mây tre">
+          <div class="card-body text-center">
+            <h5 class="card-title">Đồ dùng mây tre</h5>
+            <p class="text-muted">Số lượng: 200</p>
+            <p class="fw-bold text-danger">79.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/hopdungtra.png" class="card-img-top" alt="Hộp sứ đựng trà">
+          <div class="card-body text-center">
+            <h5 class="card-title">Hộp sứ đựng trà</h5>
+            <p class="text-muted">Số lượng: 100</p>
+            <p class="fw-bold text-danger">199.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/guonggocamtay.png" class="card-img-top" alt="Gương gỗ cầm tay">
+          <div class="card-body text-center">
+            <h5 class="card-title">Gương gỗ cầm tay</h5>
+            <p class="text-muted">Số lượng: 130</p>
+            <p class="fw-bold text-danger">39.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/donghocambut.png" class="card-img-top" alt="Đồng hồ kèm hộp bút gỗ">
+          <div class="card-body text-center">
+            <h5 class="card-title">Đồng hồ kèm hộp bút gỗ</h5>
+            <p class="text-muted">Số lượng: 100</p>
+            <p class="fw-bold text-danger">299.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/Screenshot 2025-10-25 183527.png" class="card-img-top" alt="Ly sứ in hình">
+          <div class="card-body text-center">
+            <h5 class="card-title">Ly sứ in hình</h5>
+            <p class="text-muted">Số lượng: 200</p>
+            <p class="fw-bold text-danger">39.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/Screenshot 2025-10-25 184654.png" class="card-img-top" alt="Đĩa lưu niệm bác Hồ">
+          <div class="card-body text-center">
+            <h5 class="card-title">Đĩa lưu niệm bác Hồ</h5>
+            <p class="text-muted">Số lượng: 100</p>
+            <p class="fw-bold text-danger">299.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/Screenshot 2025-10-25 185450.png" class="card-img-top" alt="Khăn choàng lụa">
+          <div class="card-body text-center">
+            <h5 class="card-title">Khăn choàng lụa</h5>
+            <p class="text-muted">Số lượng: 200</p>
+            <p class="fw-bold text-danger">120.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/tuongnghethuat.png" class="card-img-top" alt="Tượng nghệ thuật">
+          <div class="card-body text-center">
+            <h5 class="card-title">Tượng nghệ thuật</h5>
+            <p class="text-muted">Số lượng: 110</p>
+            <p class="fw-bold text-danger">199.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/Screenshot 2025-10-25 191608.png" class="card-img-top" alt="Túi vải họa tiết">
+          <div class="card-body text-center">
+            <h5 class="card-title">Túi vải họa tiết</h5>
+            <p class="text-muted">Số lượng: 180</p>
+            <p class="fw-bold text-danger">50.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/lohoathucong.png" class="card-img-top" alt="Lọ hoa thủ công">
+          <div class="card-body text-center">
+            <h5 class="card-title">Lọ hoa thủ công</h5>
+            <p class="text-muted">Số lượng: 250</p>
+            <p class="fw-bold text-danger">100.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/nhasan.png" class="card-img-top" alt="Nhà sàn làm bằng vỏ đạn">
+          <div class="card-body text-center">
+            <h5 class="card-title">Nhà sàn làm bằng vỏ đạn</h5>
+            <p class="text-muted">Số lượng: 100</p>
+            <p class="fw-bold text-danger">500.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/bando.png" class="card-img-top" alt="Bản đồ Việt Nam">
+          <div class="card-body text-center">
+            <h5 class="card-title">Bản đồ Việt Nam</h5>
+            <p class="text-muted">Số lượng: 500</p>
+            <p class="fw-bold text-danger">299.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/Screenshot 2025-10-25 191440.png" class="card-img-top" alt="Sổ tay đan tre">
+          <div class="card-body text-center">
+            <h5 class="card-title">Sổ tay đan tre</h5>
+            <p class="text-muted">Số lượng: 500</p>
+            <p class="fw-bold text-danger">65.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 fade-in-scroll">
+        <div class="card h-100 shadow-sm">
+          <img src="./sanpham/sap.png" class="card-img-top" alt="Sáp thơm thủ công">
+          <div class="card-body text-center">
+            <h5 class="card-title">Sáp thơm thủ công</h5>
+            <p class="text-muted">Số lượng: 300</p>
+            <p class="fw-bold text-danger">35.000₫</p>
+            <a href="#" class="btn btn-outline-danger btn-sm add-to-cart">Thêm vào giỏ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+
+  <!-- GIỎ HÀNG -->
+  <div id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <h5><i class="fa fa-shopping-cart"></i> Giỏ hàng</h5>
+      <button id="closeCart" class="btn-close"></button>
+    </div>
+    <ul id="cartItems" class="list-group list-group-flush"></ul>
+    <div class="cart-footer">
+      <p class="fw-bold">Tổng: <span id="cartTotal">0₫</span></p>
+      <button class="btn btn-danger w-100 mt-2">Thanh toán</button>
+    </div>
+  </div>
+  
+    <!-- POPUP THANH TOÁN -->
+  <div id="paymentPopup" class="payment-popup">
+    <div class="payment-message">
+      <button class="payment-close" id="closePopup">&times;</button>
+      <form id="paymentForm" class="mt-3">
+        <div class="mb-3 text-start">
+          <label for="customerName" class="form-label">Họ và tên</label>
+          <input type="text" id="customerName" class="form-control" placeholder="Nhập họ và tên" required>
+        </div>
+        <div class="mb-3 text-start">
+          <label for="customerEmail" class="form-label">Gmail</label>
+          <input type="email" id="customerEmail" class="form-control" placeholder="Nhập địa chỉ Gmail" required>
+        </div>
+        <div class="mb-3 text-start">
+          <label for="customerPhone" class="form-label">Số điện thoại</label>
+          <input type="tel" id="customerPhone" class="form-control" placeholder="Nhập số điện thoại" required>
+        </div>
+        <!-- LỰA CHỌN HÌNH THỨC NHẬN HÀNG -->
+        <div class="mb-3 text-start">
+          <label class="form-label">Hình thức nhận sản phẩm</label><br>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="deliveryOption" id="receiveAtHome" value="home" checked>
+            <label class="form-check-label" for="receiveAtHome">
+              Nhận tại nhà (Giao tận nơi)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="deliveryOption" id="receiveAtMuseum" value="museum">
+            <label class="form-check-label" for="receiveAtMuseum">
+              Nhận tại bảo tàng
+            </label>
+          </div>
+        </div>
+
+        <!-- ĐỊA CHỈ GIAO HÀNG -->
+        <div class="mb-3 text-start" id="addressField">
+          <label for="customerAddress" class="form-label">Địa chỉ nhận hàng</label>
+          <input type="text" id="customerAddress" class="form-control" placeholder="Nhập địa chỉ của bạn" required>
+        </div>
+
+        <!-- MÃ QR THANH TOÁN -->
+        <div class="text-center my-3">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?data=BAOTANGHCM_THANHTOAN&size=180x180" 
+              alt="QR thanh toán" class="img-fluid rounded shadow">
+          <p class="mt-2 text-muted small">Quét mã QR để thanh toán qua ngân hàng hoặc ví điện tử</p>
+        </div>
+
+        <button type="submit" class="btn btn-danger w-100 mt-2">Xác nhận thanh toán</button>
+      </form>
+
+      <div id="confirmMessage" class="mt-3 text-success fw-bold" style="display:none;">
+        🎉 Cảm ơn bạn! Thanh toán thành công. Thông tin đơn hàng sẽ được gửi về email của bạn.
+      </div>
+    </div>
+  </div>
+
+<!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <p>
+            <i class="bi bi-geo-alt-fill"></i> Số 2 Nguyễn Bỉnh Khiêm, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh <br>
+            <i class="bi bi-telephone-fill"></i> (028) 3829 8146 - 3829 0268 - Fax: (028) 3825 8784 <br>
+            <i class="bi bi-envelope-open-fill"></i> bt.ls.svhtt@tphcm.gov.vn <br>
+            &copy; 2025 Bảo tàng Lịch sử TP.HCM. All rights reserved.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <ul class="social-links">
+            <li><a href="https://www.facebook.com/baotanglichsu/"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCu09VHlMr9FKoEk6FsH3n-A"><i class="fab fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="index.js"></script>
+  <script src="luuniem.js"></script>
+  <script>
+  // Ẩn/hiện ô địa chỉ theo lựa chọn
+  document.querySelectorAll('input[name="deliveryOption"]').forEach(option => {
+    option.addEventListener('change', function() {
+      const addressField = document.getElementById('addressField');
+      if (this.value === 'museum') {
+        addressField.style.display = 'none';
+        document.getElementById('customerAddress').removeAttribute('required');
+      } else {
+        addressField.style.display = 'block';
+        document.getElementById('customerAddress').setAttribute('required', 'true');
+      }
+    });
+  });
+</script>
+</body>
+</html>
+
+       
+ 

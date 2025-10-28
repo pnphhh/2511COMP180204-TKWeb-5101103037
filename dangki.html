@@ -1,0 +1,294 @@
+<!-- ==============================================
+    TRƯỜNG ĐẠI HỌC SƯ PHẠM THÀNH PHỐ HỒ CHÍ MINH
+            KHOA CÔNG NGHỆ THÔNG TIN
+                LỚP 51.01.SPTIN.A
+    LỚP HỌC PHẦN 2511COMP180204 - THIẾT KẾ WEB
+                NHÓM ...
+    Thành viên thực hiện:
+        51.01.103.037 Phạm Ngọc Phượng Hoàng
+        51.01.103.075 Trần Thị Như Quỳnh
+        51.01.103.078 Đỗ Nguyễn Tấn Tài
+        51.01.103.099 Nguyễn Ngọc Phương Trâm
+        51.01.103.103 Huỳnh Huy Trường
+================================================== -->
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảo tàng Lịch sử TP.HCM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header, nav -->
+    <header class="site-header sticky-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12">
+                    <div class="logo-container">
+                        <img src="./home/logo_btls.png" alt="Logo Bảo tàng" class="logo">
+                        <h1 class="site-title">Bảo tàng Lịch sử Thành phố Hồ Chí Minh</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <nav class="main-nav d-flex justify-content-lg-end justify-content-center">
+                        <ul>
+                            <li><a href="index.html">TRANG CHỦ</a></li>
+                            <li><a href="map.html">QUY TRÌNH THAM QUAN</a></li>
+                            <li><a href="minigame.html">MINIGAME SĂN QUÀ</a></li>
+                            <li><a href="dangki.html" class="active">ĐĂNG KÍ THAM QUAN</a></li>
+                            <li><a href="luuniem.html">LƯU NIỆM</a></li>
+                            <li>
+                                <a href="#" id="search-toggle" class="search-icon" aria-label="Mở tìm kiếm">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- Tìm kiếm ẩn -->
+            <form class="header-search-form" id="header-search-form">
+                <input type="search" placeholder="Nhập từ khóa..." aria-label="Tìm kiếm">
+                <button type="submit" aria-label="Tìm"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </header>
+
+   <!-- FORM ĐĂNG KÍ -->
+    <main class="container my-5">
+        <h2 class="text-center mb-5 fade-in-scroll">Đăng Ký Tham Quan Bảo Tàng</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <form id="registration-form" class="fade-in-scroll step-container">
+                    <div class="step active" data-step="1">
+                        <div class="mb-3">
+                            <h3> Bạn muốn đăng kí theo hình thức</h3>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tourType" id="typeIndividual" value="individual" checked>
+                                <label class="form-check-label" for="typeIndividual">Cá nhân/Gia đình (Dưới 10 người)</label>
+                            </div><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="tourType" id="typeGroup" value="group">
+                                <label class="form-check-label" for="typeGroup">Đoàn/Tổ chức (Từ 10 người trở lên)</label>
+                            </div>
+                        </div>
+                        <div class="step-navigation">
+                            <button type="button" class="btn btn-primary" data-next-step>OK <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="step" data-step="2">
+                        <h4><i class="fas fa-user-edit"></i> Thông Tin Người Đăng Ký</h4>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="fullName" class="form-label" id="name-label">Họ và Tên:</label>
+                                <input type="text" class="form-control" id="fullName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Số Điện Thoại:</label>
+                                <input type="tel" class="form-control" id="phone" required pattern="[0-9]{10,12}">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="visitDate" class="form-label">Ngày Đăng Ký Tham Quan:</label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="visitDate" 
+                                    placeholder="DD/MM/YYYY" 
+                                    pattern="\d{2}/\d{2}/\d{4}" 
+                                    inputmode="numeric" 
+                                    required>
+                                <div class="form-text">Ngày/Tháng/Năm</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="numGuests" class="form-label">Số Lượng Khách:</label>
+                                <input type="number" class="form-control" id="numGuests" min="1" required>
+                                <div class="form-text" id="guest-limit-text">Cá nhân: Tối đa 9 người. Đoàn: Tối thiểu 10 người.</div>
+                            </div>
+                        </div>
+                        <div id="individual-fields" class="guest-type-fields">
+                            <h5><i class="fas fa-tag"></i> Giá vé</h5>
+                            <div class="mb-3">
+                                <label for="adultCount" class="form-label">Người lớn (30.000 VND):</label>
+                                <input type="number" id="adultCount" name="adultCount" class="form-control" min="0" value="0">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="discountCount" class="form-label">Học sinh/Sinh viên, Người cao tuổi, Người khuyết tật nặng (15.000 VND):</label>
+                                <input type="number" id="discountCount" name="discountCount" class="form-control" min="0" value="0">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="freeCount" class="form-label">Trẻ em &lt; 6 tuổi, Người khuyết tật đặc biệt nặng, Hộ nghèo (Miễn phí):</label>
+                                <input type="number" id="freeCount" name="freeCount" class="form-control" min="0" value="0">
+                            </div>
+                        </div>
+                        <div id="group-fields" class="guest-type-fields" style="display:none;">
+                            <h5><i class="fas fa-handshake"></i> Chính sách Đoàn</h5>
+                            <p class="mb-0">Giá vé mặc định có chiết khấu 15% tổng tiền vé ban đầu.</p>
+                        </div>
+                        <div class="step-navigation">
+                            <button type="button" class="btn btn-secondary me-2" data-prev-step><i class="fas fa-arrow-left"></i> Quay lại</button>
+                            <button type="button" class="btn btn-primary" data-next-step>OK <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <h4>Dịch Vụ Kèm Theo</h4>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input service-option" type="checkbox" value="300000" id="guideService">
+                            <label class="form-check-label" for="guideService">
+                                Hướng Dẫn Viên (Phụ phí: 300.000 VND)
+                            </label>
+                        </div>
+
+                        <div class="form-check mb-3">
+                            <input class="form-check-input service-option" type="checkbox" id="guideService">
+                            <label class="form-check-label" for="guideService">
+                                Xuất hoá đơn VAT
+                            </label>
+                        </div>
+
+
+                        <div class="mb-4">
+                            <div class="form-check mb-2">
+                                <input class="form-check-input service-option" type="checkbox" id="souvenirOption">
+                                <label class="form-check-label" for="souvenirOption">
+                                    Đặt Trước Quà Lưu Niệm
+                                </label>
+                            </div>
+                            <div id="souvenir-details" class="ms-4 p-3 border rounded" style="display:none; flex-direction: column; gap: 10px;">
+                                <div class="row souvenir-item">
+                                    <label class="form-label col-md-8">Bút bi khắc tên anh hùng (30.000 VND/cái)</label>
+                                    <div class="col-4 col-md-3">
+                                        <input type="number" class="form-control souvenir-input" id="souvenirPen" min="0" value="0">
+                                    </div>
+                                </div>
+                                <div class="row souvenir-item">
+                                    <label class="form-label col-md-8">Postcard anh hùng dân tộc (20.000 VND/cái)</label>
+                                    <div class="col-4 col-md-3">
+                                        <input type="number" class="form-control souvenir-input" id="souvenirPostcard" min="0" value="0">
+                                    </div>
+                                </div>
+                                <div class="row souvenir-item">
+                                    <label class="form-label col-md-8">Móc khóa di tích lịch sử (20.000 VND/cái)</label>
+                                    <div class="col-4 col-md-3">
+                                        <input type="number" class="form-control souvenir-input" id="souvenirKeychain" min="0" value="0">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="specialRequest" class="form-label"><i class="fas fa-lightbulb"></i> Yêu Cầu Đặc Biệt (Hỗ trợ xe lăn, ...)</label>
+                            <textarea class="form-control" id="specialRequest" rows="3"></textarea>
+                        </div>
+                        <div class="step-navigation">
+                            <button type="button" class="btn btn-secondary me-2" data-prev-step><i class="fas fa-arrow-left"></i> Quay lại</button>
+                            <button type="button" class="btn btn-primary" data-next-step>OK <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="step step1" data-step="4">
+                        <h4><i class="fas fa-credit-card"></i> Thanh Toán & Xác Nhận</h4>
+                        <div class="row">
+                            <div class="col-lg-6 mb-3">
+                                <div class="payment-summary">
+                                    <h4>Chi Tiết Đơn Hàng</h4>
+                                    <div><span>Tổng tiền vé:</span> <strong id="summary-ticket-price">0 VND</strong></div>
+                                    <div><span>Phí Hướng dẫn viên:</span> <strong id="summary-guide-fee">0 VND</strong></div>
+                                    <div><span>Phí Quà lưu niệm:</span> <strong id="summary-souvenir-fee">0 VND</strong></div>
+                                    <div id="summary-discount-row" style="display:none;"><span>**Chiết khấu Đoàn:**</span> <strong class="text-success" id="summary-discount-amount">0 VND</strong></div>
+                                    <div class="total-amount"><span>TỔNG THANH TOÁN:</span> <strong id="summary-total-price">0 VND</strong></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="voucherCode" class="form-label">Mã Voucher (Nếu có):</label>
+                                    <input type="text" class="form-control" id="voucherCode">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary mt-2" id="applyVoucher">Áp Dụng</button>
+                                </div>
+                                <div class="form-check mb-4">
+                                    <input class="form-check-input" type="checkbox" id="agreePolicy" required>
+                                    <label class="form-check-label" for="agreePolicy">
+                                        Tôi đồng ý với các điều kiện và chính sách của bảo tàng.
+                                    </label>
+                                </div>
+                                <div class="step-navigation p-0">
+                                    <button type="button" class="btn btn-secondary me-2" data-prev-step><i class="fas fa-arrow-left"></i> Quay lại</button>
+                                    <button type="submit" class="btn btn-success" id="final-submit-btn">Thanh Toán <i class="fas fa-money-check-alt"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="paymentModal" 
+                        data-bs-backdrop="false"
+                        tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="paymentModalLabel">Thanh Toán</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="qr-code-section" class="text-center">
+                                        <p class="mb-2">Quét mã QR dưới đây để thanh toán:</p>
+                                        <div id="qrcode" class="d-flex justify-content-center mb-3">
+                                        </div>
+                                        <p class="mb-1"><strong>Số tiền cần thanh toán:</strong> <span id="qr-total-amount" class="text-danger fw-bold">0 VND</span></p>
+                                        <p class="text-muted small">Nội dung chuyển khoản: **BTLS-[SĐT của bạn]**</p>
+                                        <hr>
+                                        <button type="button" class="btn btn-warning" id="confirm-payment-btn">Đã Thanh Toán</button>
+                                    </div>
+                                    <div id="success-section" class="text-center" style="display:none;">
+                                        <i class="fas fa-check-circle text-success mb-3" style="font-size: 3rem;"></i>
+                                        <h5 class="text-success">Thanh toán hoàn tất!</h5>
+                                        <p>Hệ thống sẽ xác nhận giao dịch trong vòng 5 phút.</p>
+                                        <p>Chi tiết đăng ký đã được gửi đến email của bạn.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </main>
+            
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <p>
+                        <i class="bi bi-geo-alt-fill"></i> Số 2 Nguyễn Bỉnh Khiêm, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh <br>
+                        <i class="bi bi-telephone-fill"></i> (028) 3829 8146 - 3829 0268 - Fax: (028) 3825 8784 <br>
+                        <i class="bi bi-envelope-open-fill"></i> bt.ls.svhtt@tphcm.gov.vn <br>
+                        &copy; 2025 Bảo tàng Lịch sử TP.HCM. All rights reserved.
+                    </p>
+                </div>
+                <!-- Liên kết xã hội -->
+                <div class="col-md-4">
+                    <ul class="social-links">
+                        <li><a href="https://www.facebook.com/baotanglichsu/"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCu09VHlMr9FKoEk6FsH3n-A"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="dangki.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

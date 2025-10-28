@@ -1,0 +1,276 @@
+<!-- ==============================================
+    TRƯỜNG ĐẠI HỌC SƯ PHẠM THÀNH PHỐ HỒ CHÍ MINH
+            KHOA CÔNG NGHỆ THÔNG TIN
+                LỚP 51.01.SPTIN.A
+    LỚP HỌC PHẦN 2511COMP180204 - THIẾT KẾ WEB
+                NHÓM ...
+    Thành viên thực hiện:
+        51.01.103.037 Phạm Ngọc Phượng Hoàng
+        51.01.103.075 Trần Thị Như Quỳnh
+        51.01.103.078 Đỗ Nguyễn Tấn Tài
+        51.01.103.099 Nguyễn Ngọc Phương Trâm
+        51.01.103.103 Huỳnh Huy Trường
+================================================== -->
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảo tàng Lịch sử TP.HCM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header, nav -->
+    <header class="site-header sticky-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12">
+                    <div class="logo-container">
+                        <img src="./home/logo_btls.png" alt="Logo Bảo tàng" class="logo">
+                        <h1 class="site-title">Bảo tàng Lịch sử Thành phố Hồ Chí Minh</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <nav class="main-nav d-flex justify-content-lg-end justify-content-center">
+                        <ul>
+                            <li><a href="index.html" class="active">TRANG CHỦ</a></li>
+                            <li><a href="map.html">QUY TRÌNH THAM QUAN</a></li>
+                            <li><a href="minigame.html">MINIGAME SĂN QUÀ</a></li>
+                            <li><a href="dangki.html">ĐĂNG KÍ THAM QUAN</a></li>
+                            <li><a href="luuniem.html">LƯU NIỆM</a></li>
+                            <li>
+                                <a href="#" id="search-toggle" class="search-icon" aria-label="Mở tìm kiếm">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- Tìm kiếm ẩn -->
+            <form class="header-search-form" id="header-search-form">
+                <input type="search" placeholder="Nhập từ khóa..." aria-label="Tìm kiếm">
+                <button type="submit" aria-label="Tìm"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Banner chạy ảnh tự động -->
+    <section class="banner-carousel">
+        <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./home/banner_1.png" class="d-block w-100" alt="1">
+                </div>
+                <div class="carousel-item">
+                    <img src="./home/banner_2.png" class="d-block w-100" alt="2">
+                </div>
+                <div class="carousel-item">
+                    <img src="./home/banner_3.png" class="d-block w-100" alt="3">
+                </div>
+                <div class="carousel-item">
+                    <img src="./home/banner_4.jpg" class="d-block w-100" alt="4">
+                </div>
+                <div class="carousel-item">
+                    <img src="./home/banner_5.jpg" class="d-block w-100" alt="5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nội dung -->
+    <div class="container mt-5">
+        <!-- Giới thiệu -->
+        <div class="row justify-content-center">
+            <main class="col-lg-7">
+                <article class="content-block fade-in-scroll">
+                    <h2 style="text-align: center;">Giới Thiệu Chung</h2>
+                    <p>
+                        Bảo tàng sở hữu hơn 40.000 hiện vật với nhiều sưu tập độc đáo, quý giá có nguồn gốc từ nhiều quốc gia, dân tộc; chất liệu, loại hình vô cùng đa dạng, phong phú. Các bộ sưu tập giới thiệu về lịch sử, văn hóa Việt Nam từ  thời nguyên thủy đến năm 1945 và giới thiệu về những nét văn hóa độc đáo ở các tỉnh phía Nam và một số nước trong khu vực châu Á.
+                        Bảo tàng cũng là nơi làm việc của nhiều chuyên gia, các nhà nghiên cứu về lịch sử, văn hóa, xã hội Việt Nam, các nền văn hóa trong khu vực và trên thế giới cùng đội ngũ nhân viên có trình độ, kinh nghiệm.
+                        Trong xu thế phát triển hiện nay, để có thể đáp ứng nhu cầu thưởng thức những giá trị văn hóa trong đời sống tinh thần của công chúng, Bảo tàng luôn phải tự đổi mới các hoạt động với mục đích hướng đến Bảo tàng vì cộng đồng.
+                    </p>
+                    <img src="./home/gioithieu.jpg" alt="Bảo tàng Lịch sử TP.HCM">
+                    <br>
+                </article>
+                <!-- Trưng bày -->
+                <section class="content-block fade-in-scroll">
+                    <h3 style="text-align: center;">Không Gian Trưng Bày</h3>
+                    <br>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="image-card">
+                                <img src="./home/netcu.jpg" alt="Nét cũ dấu xưa">
+                                <p class="mt-2"><strong>Nét cũ dấu xưa</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="image-card">
+                                <img src="./home/thanglong.jpg" alt="ThăngLong">
+                                <p class="mt-2"><strong>Thăng Long - Hà Nội linh thiêng hào hoa</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="image-card">
+                                <img src="./home/tiengiay.jpg" alt="Tiền giấy Việt Nam">
+                                <p class="mt-2"><strong>Tiền giấy Việt Nam qua các thời kỳ</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="image-card">
+                                <img src="./home/hoasen.jpg" alt="Hoa sen trong nghệ thuật trang trí Việt Nam">
+                                <p class="mt-2"><strong>Hoa sen trong nghệ thuật trang trí Việt Nam</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Bộ sưu tập-->
+                <section class="content-block fade-in-scroll">
+                    <article class="content-block">
+                        <h2 style="text-align: center;">Các bộ sưu tập nổi bật</h2>
+                        <p style="text-align: center;">Khám phá di sản văn hóa phong phú của Việt Nam qua các bộ sưu tập hiện vật độc đáo đang được lưu giữ và trưng bày tại bảo tàng.</p>
+                    </article>
+                    <section class="collection-gallery">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="collection-card slide-up-on-scroll">
+                                    <img src="./home/phunam.jpg" class="card-img-top" alt="Bảo vật quốc gia">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="text-align: center;">Bảo vật quốc gia</h5>
+                                        <hr>
+                                        <p class="card-text">Nghệ thuật Phật giáo và Hindu giáo của nền Văn hóa Phù Nam - Óc Eo (thế kỷ 1-7) và văn hóa Champa (thế kỷ 2-17) phát triển từ xa xưa ở Nam bộ và Trung bộ Việt Nam.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="collection-card slide-up-on-scroll">
+                                    <img src="./home/cokhi.png" class="card-img-top" alt="Cổ khí Minh Mạng">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="text-align: center;">Cổ khí Minh Mạng</h5>
+                                        <hr>
+                                        <p class="card-text">33 loại đồ đựng bằng đồng phỏng theo các loại đồ đựng thời Tam Đại và được dùng để tế lễ, trên đó khắc những bài minh văn chữ Hán lấy ý từ những tác phẩm kinh điển của Nho giáo</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                </section>
+            </main>
+
+            <!-- Thanh bên, widget -->
+            <aside class="col-lg-4">
+                <!-- Widget thông tin -->
+                <div class="widget fade-in-scroll">
+                    <h4 class="widget-title"><i class="bi bi-info-circle-fill"></i> Thông Tin</h4>
+                    
+                    <div class="widget-info">
+                        <p class="mb-2"><strong>GIỜ MỞ CỬA:</strong></p>
+                        <p class="ms-3" style="line-height: 1.6; text-align: center;">
+                            Từ thứ ba đến Chủ nhật:<br>
+                            <span style="color: #c06b3e; font-weight: 500;">Sáng: 8:00 - 11:30</span><br>
+                            <span style="color: #c06b3e; font-weight: 500;">Chiều: 13:00 - 17:00</span><br>
+                            Thứ hai đóng cửa
+                        </p>
+                        <p class="mb-2 mt-3"><strong>ĐỊA CHỈ:</strong></p>
+                        <p class="ms-3">
+                            Số 2, Nguyễn Bỉnh Khiêm, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh.
+                        </p>
+                    </div>
+                    
+                    <hr class="my-3">
+
+                    <div class="row text-center info-icons">
+                        <div class="col-4">
+                            <a href="map.html" class="info-icon-link">
+                                <div class="info-icon-circle">
+                                    <i class="bi bi-book-half"></i>
+                                </div>
+                                <span class="info-icon-text">QUY TRÌNH THAM QUAN</span>
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a href="minigame.html" class="info-icon-link">
+                                <div class="info-icon-circle">
+                                    <i class="bi bi-gift-fill"></i>
+                                </div>
+                                <span class="info-icon-text">MINIGAME SĂN QUÀ</span>
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a href="dangki.html" class="info-icon-link">
+                                <div class="info-icon-circle">
+                                    <i class="bi bi-calendar-plus-fill"></i>
+                                </div>
+                                <span class="info-icon-text">ĐĂNG KÍ THAM QUAN</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Widget sự kiện -->
+                <div class="widget fade-in-scroll">
+                    <h4 class="widget-title"><i class="bi bi-calendar-event"></i> Lịch Sự Kiện</h4>
+                    <ul class="event-list">
+                        <li><span class="event-date">20/11</span> Trưng bày chuyên đề "Nét Cọ Trên Gốm"</li>
+                        <li><span class="event-date">05/12</span> Tọa đàm "Di Sản Văn Hóa Óc Eo"</li>
+                        <li><span class="event-date">25/12</span> Workshop "Làm Đồ Chơi Dân Gian"</li>
+                    </ul>
+                </div>
+                <!-- Widget video Youtube -->
+                <div class="widget fade-in-scroll">
+                    <h4 class="widget-title"> <i class="bi bi-play-btn-fill"></i> Video Nổi Bật</h4>
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/hDxMsEaLgoQ?si=qXF7rB_lXAyXqor3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!-- Widget bài viết gần đây -->
+                <div class="widget fade-in-scroll">
+                    <h4 class="widget-title"><i class="bi bi-vector-pen"></i> Bài Viết Gần Đây</h4>
+                    <ul>
+                        <li><a href="#">Khám phá văn hóa Sa Huỳnh qua các hiện vật</a></li>
+                        <li><a href="#">Ý nghĩa các hoa văn trên trống đồng Đông Sơn</a></li>
+                        <li><a href="#">Câu chuyện đằng sau những bức tượng Phật cổ</a></li>
+                    </ul>
+                </div>
+                <!-- iframe nhúng bản đồ -->
+                <div class="widget fade-in-scroll">              
+                    <section class="map-container content-block">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31354.425487230954!2d106.704729!3d10.788075!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f4b45abfae5%3A0x251b097f25b4f595!2zQuG6o28gdMOgbmcgTOG7i2NoIHPhu60gVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5o!5e0!3m2!1svi!2s!4v1760233215094!5m2!1svi!2s" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </section>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <p>
+                        <i class="bi bi-geo-alt-fill"></i> Số 2 Nguyễn Bỉnh Khiêm, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh <br>
+                        <i class="bi bi-telephone-fill"></i> (028) 3829 8146 - 3829 0268 - Fax: (028) 3825 8784 <br>
+                        <i class="bi bi-envelope-open-fill"></i> bt.ls.svhtt@tphcm.gov.vn <br>
+                        &copy; 2025 Bảo tàng Lịch sử TP.HCM. All rights reserved.
+                    </p>
+                </div>
+                <!-- Liên kết xã hội -->
+                <div class="col-md-4">
+                    <ul class="social-links">
+                        <li><a href="https://www.facebook.com/baotanglichsu/"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCu09VHlMr9FKoEk6FsH3n-A"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
