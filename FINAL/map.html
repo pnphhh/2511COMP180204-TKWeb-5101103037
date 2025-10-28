@@ -1,0 +1,382 @@
+<!-- ==============================================
+    TRƯỜNG ĐẠI HỌC SƯ PHẠM THÀNH PHỐ HỒ CHÍ MINH
+            KHOA CÔNG NGHỆ THÔNG TIN
+                LỚP 51.01.SPTIN.A
+    LỚP HỌC PHẦN 2511COMP180204 - THIẾT KẾ WEB
+                NHÓM ...
+    Thành viên thực hiện:
+        51.01.103.037 Phạm Ngọc Phượng Hoàng
+        51.01.103.075 Trần Thị Như Quỳnh
+        51.01.103.078 Đỗ Nguyễn Tấn Tài
+        51.01.103.099 Nguyễn Ngọc Phương Trâm
+        51.01.103.103 Huỳnh Huy Trường
+================================================== -->
+
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Bảo tàng Lịch sử TP.HCM</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="style.css">
+        
+        <style>
+            .diagram-wrapper {
+                max-width: 900px; 
+                width: 100%;                               
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                margin-top: 50px;
+                margin-bottom: 50px;
+                padding: 0 15px; 
+                box-sizing: border-box;
+            }
+
+            .diagram-container {
+                position: relative;
+                /* Đảm bảo container ôm vừa ảnh, loại bỏ khoảng trắng dư thừa */
+                display: inline-block; 
+                border: 1px solid #ccc;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .main-diagram-image {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+
+            /* Hotspot Styling */
+            .hotspot {
+                position: absolute;
+                cursor: pointer;
+                z-index: 10;
+            }
+
+            .hotspot:hover {
+                outline: 2px solid #007bff;
+                outline-offset: -2px;
+                border-radius: 3px;
+            }
+
+            /* Detail Box Styling */
+            .detail-box {
+                display: none;
+                position: absolute;
+                top: 110%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 250px;
+                padding: 15px;
+                background-color: #fff;
+                border: 1px solid #007bff;
+                border-radius: 8px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+                z-index: 20;
+                opacity: 0;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                pointer-events: none; /* Không chặn các sự kiện chuột khác */
+            }
+
+            /* Hiển thị hộp chi tiết khi rê chuột vào hotspot */
+            .hotspot:hover .detail-box {
+                display: block;
+                opacity: 1;
+                transform: translateX(-50%) translateY(0); /* Đảm bảo hiệu ứng trượt */
+                pointer-events: auto; /* Cho phép tương tác với nội dung hộp */
+            }
+
+            /* Kích thước "hộp chi tiết"  */
+            .detail-box.image-detail {
+            width: 350px;
+            padding: 10px;
+            box-sizing: border-box;
+            }
+
+            /* Định dạng cho ảnh bên trong hộp chi tiết */
+            .detail-box.image-detail img {
+            /* Giới hạn kích thước ảnh bằng kích thước của hộp */
+            max-width: 100%; 
+            height: auto;
+            display: block;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            }
+        
+            /* Điều chỉnh vị trí của detail-box nếu nó tràn màn hình (ví dụ: ở mép trái/phải) */
+            .hotspot.left-edge .detail-box {
+                left: -60px;
+                transform: none;
+            }
+            .hotspot.right-edge .detail-box {
+                right: -60px;
+                left: auto;
+                transform: none;
+            }
+
+            /* --- Vị trí và kích thước của các hotspot --- */
+            #hotspot-1 { top: 68%; left: 27%; width: 18%; height: 8%; }
+            #hotspot-2 { top: 68%; left: 17.5%; width: 8.5%; height: 8%; }
+            #hotspot-3 { top: 58.5%; left: 10.5%; width: 6.5%; height: 8.5%; }
+            #hotspot-4 { top: 49.5%; left: 17.5%; width: 8.5%; height: 8%; } 
+            #hotspot-5 { top: 49.5%; left: 27%; width: 18%; height: 8%; } 
+            #hotspot-6 { top: 16.5%; left: 27%; width: 6%; height: 27%; } 
+            #hotspot-7 { top: 7%; left: 34%; width: 31%; height: 12%; }
+            #hotspot-8 { top: 9%; left: 66%; width: 7.5%; height: 6.5%; }
+            #hotspot-9 { top: 16.5%; left: 67.5%; width: 6%; height: 15%; }
+            #hotspot-10 { top: 28%; left: 81.7%; width: 3.7%; height: 3.7%; }
+            #hotspot-11 { top: 32%; left: 67.5%; width: 6%; height: 12%; }
+            #hotspot-12 { top: 49.5%; left: 55.5%; width: 18%; height: 7.5%; }
+            #hotspot-13 { top: 49.5%; left: 74.5%; width: 8.5%; height: 8%; }
+            #hotspot-14 { top: 58.5%; left: 74.5%; width: 8.5%; height: 8.5%; }
+            #hotspot-15 { top: 58.5%; left: 84%; width: 5.5%; height: 8.5%; }
+            #hotspot-16 { top: 68%; left: 74.5%; width: 8.5%; height: 8%; }
+            #hotspot-17 { top: 68%; left: 55.5%; width: 18%; height: 8%; }
+            #hotspot-18 { top: 44%; left: 46%; width: 8.5%; height: 10%; }
+
+
+            /* Điều chỉnh cho khu vực hình vuông màu cam bên trái */
+            #hotspot-orange-square { top: 36%; left: 9.5%; width: 4%; height: 4%; }
+            /* Điều chỉnh cho khu vực lối vào */
+            #hotspot-entrance-top { top: 27%; left: 10%; width: 17%; height: 5%; }
+            #hotspot-entrance-bottom { top: 77%; left: 44%; width: 12.5%; height: 16%; }
+        
+
+        </style>   
+    </head>
+    
+    <body>
+
+        <!-- Header, nav -->
+        <header class="site-header sticky-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="logo-container">
+                            <img src="./home/logo_btls.png" alt="Logo Bảo tàng" class="logo">
+                            <h1 class="site-title">Bảo tàng Lịch sử Thành phố Hồ Chí Minh</h1>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <nav class="main-nav d-flex justify-content-lg-end justify-content-center">
+                            <ul>
+                                <li><a href="index.html">TRANG CHỦ</a></li>
+                                <li><a href="map.html" class="active">QUY TRÌNH THAM QUAN</a></li>
+                                <li><a href="minigame.html">MINIGAME SĂN QUÀ</a></li>
+                                <li><a href="dangki.html">ĐĂNG KÍ THAM QUAN</a></li>
+                                <li><a href="luuniem.html">LƯU NIỆM</a></li>
+                                <li>
+                                    <a href="#" id="search-toggle" class="search-icon" aria-label="Mở tìm kiếm">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- Tìm kiếm ẩn -->
+                <form class="header-search-form" id="header-search-form">
+                    <input type="search" placeholder="Nhập từ khóa..." aria-label="Tìm kiếm">
+                    <button type="submit" aria-label="Tìm"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </header>
+
+        <div class="diagram-wrapper">
+            <h1>Quy Trình Tham Quan</h1>
+            <h4 style="text-align: left;"> Khách tham quan di chuyển theo chiều kim đồng hồ theo sơ đồ toà nhà dưới đây:</h4>
+            <ul style="text-align: left;">
+                <li><b>Từ cổng 1</b> (Lối vào chính từ Thảo Cầm viên) &rarr; Quầy vé cổng 1 &rarr; Các khu trưng bày theo thứ tự từ 1 đến 18 &rarr; vị trí xuất phát</li>
+                <li><b>Từ cổng 2</b> (Lối vào phụ từ đường Nguyễn Bỉnh Khiêm) &rarr; Quầy vé cổng 2 &rarr; Các khu trưng bày theo thứ tự từ 6 đến 18 rồi trở lại từ 1 đến 6 &rarr; vị trí xuất phát.</li>
+            </ul> 
+
+            <div class="diagram-container">
+                <img src="images/toa_nha.png" alt="Sơ đồ tham quan" class="main-diagram-image">
+
+                <!--Khu vực 1: Thời Nguyên thủy-->
+                <div class="hotspot left-edge" id="hotspot-1">
+                    <div class="detail-box image-detail">
+                        <img src="images/1.png" alt="Khu vực 1: Thời Nguyên thủy ">
+                    </div>
+                </div>
+
+                <!--Khu vực 2: Thời Kim khí - Hùng Vương-->
+                <div class="hotspot left-edge" id="hotspot-2">
+                    <div class="detail-box image-detail">
+                        <img src="images/2.png" alt="Khu vực 2: Thời Kim khí - Hùng Vương">
+                    </div>
+                </div>
+ 
+                <!--Khu vực 3: Thời Bắc thuộc - Đấu trang giành độc lập-->
+                <div class="hotspot left-edge" id="hotspot-3">
+                    <div class="detail-box image-detail">
+                        <img src="images/3.png" alt="Khu vực 3: Thời Bắc thuộc - Đấu trang giành độc lập">
+                    </div>
+                </div>
+
+                <!--Khu vực 4: Thời Ngô - Đinh - Tiền Lê - Lý-->
+                <div class="hotspot left-edge" id="hotspot-4">
+                    <div class="detail-box image-detail">
+                        <img src="images/4.png" alt="Khu vực 4: Thời Ngô - Đinh - Tiền Lê - Lý">
+                    </div>
+                </div>
+
+                <!--Khu vực 5: Thời Trần - Hồ-->
+                <div class="hotspot left-edge" id="hotspot-5">
+                    <div class="detail-box image-detail">
+                        <img src="images/5.png" alt="Khu vực 5: Thời Trần - Hồ">
+                    </div>
+                </div>
+
+                <!--Khu vực 6: Văn hóa Champa-->
+                <div class="hotspot left-edge" id="hotspot-6">
+                    <div class="detail-box image-detail">
+                        <img src="images/6.png" alt="Khu vực 6: Văn hóa Champa">
+                    </div>
+                </div>
+
+                <!--Khu vực 7: Văn hoá Óc Eo-->
+                <div class="hotspot" id="hotspot-7">
+                    <div class="detail-box image-detail">
+                        <img src="images/7.png" alt="Khu vực 7: Văn hoá Óc Eo">
+                    </div>
+                </div>
+
+                <!--Khu vực 8: Điêu khắc đá Campuchia-->
+                <div class="hotspot right-edge" id="hotspot-8">
+                    <div class="detail-box image-detail">
+                        <img src="images/8.png" alt="Khu vực 8: Điêu khắc đá Campuchia">
+                    </div>
+                </div>
+
+                <!--Khu vực 9: Thời Thời Lê - Mạc, Trịnh - Nguyễn-->
+                <div class="hotspot right-edge" id="hotspot-9">
+                    <div class="detail-box image-detail">
+                        <img src="images/9.png" alt="Khu vực 9: Thời Thời Lê - Mạc, Trịnh - Nguyễn">
+                    </div>
+                </div>
+
+                <!--Khu vực 10: Súng Thần công - Đại bác-->
+                <div class="hotspot right-edge" id="hotspot-10">
+                    <div class="detail-box image-detail">
+                        <img src="images/10.png" alt="Khu vực 10: Súng Thần công - Đại bác">
+                    </div>
+                </div>
+
+                <!--Khu vực 11 Thời Tây Sơn-->
+                <div class="hotspot right-edge" id="hotspot-11">
+                    <div class="detail-box image-detail">
+                        <img src="images/11.png" alt="Khu vực 11 Thời Tây Sơn">
+                    </div>
+                </div>
+
+                <!--Khu vực 12: Thời Nguyễn-->
+                <div class="hotspot right-edge" id="hotspot-12">
+                    <div class="detail-box image-detail">
+                        <img src="images/12.png" alt="Khu vực 12: Thời Nguyễn">
+                    </div>
+                </div>
+
+                <!--Khu vực 13: Sưu tập Dương Hà-->
+                <div class="hotspot right-edge" id="hotspot-13">
+                    <div class="detail-box image-detail">
+                        <img src="images/13.png" alt="Khu vực 13: Sưu tập Dương Hà">
+                    </div>
+                </div>
+
+                <!--Khu vực 14: Gốm một số nước Châu Á-->
+                <div class="hotspot right-edge" id="hotspot-14">
+                    <div class="detail-box image-detail">
+                        <img src="images/14.png" alt="Khu vực 14: Gốm một số nước Châu Á">
+                    </div>
+                </div>
+
+                <!--Khu vực 15: Xác ướp Xóm Cải-->
+                <div class="hotspot right-edge" id="hotspot-15">
+                    <div class="detail-box image-detail">
+                        <img src="images/15.png" alt="Khu vực 15: Xác ướp Xóm Cải">
+                    </div>
+                </div>
+
+                <!--Khu vực 16: Sưu tập Vương Hồng Sển-->
+                <div class="hotspot right-edge" id="hotspot-16">
+                    <div class="detail-box image-detail">
+                        <img src="images/16.png" alt="Khu vực 16: Sưu tập Vương Hồng Sển">
+                    </div>
+                </div>
+
+                <!--Khu vực 17: Văn hóa các dân tộc phía Nam Việt Nam-->
+                <div class="hotspot right-edge" id="hotspot-17">
+                    <div class="detail-box image-detail">
+                        <img src="images/17.png" alt="Khu vực 17: Văn hóa các dân tộc phía Nam Việt Nam">
+                    </div>
+                </div>
+
+                <!--Khu vực 18: Tượng Phật giáo một số nước Châu Á-->
+                <div class="hotspot" id="hotspot-18">
+                    <div class="detail-box image-detail">
+                        <img src="images/18.png" alt="Khu vực 18: Tượng Phật giáo một số nước Châu Á">
+                    </div>
+                </div>
+
+                <!--Quầy vé cổng 2-->
+                <div class="hotspot left-edge" id="hotspot-orange-square">
+                    <div class="detail-box image-detail">
+                        <img src="images/19.png" alt="Quầy vé cổng 2">
+                    </div>
+                </div>
+
+                <!--Lối vào phụ từ đường Nguyễn Bỉnh Khiêm-->
+                <div class="hotspot left-edge" id="hotspot-entrance-top">
+                    <div class="detail-box image-detail">
+                        <img src="images/20.png" alt="Lối vào phụ từ đường Nguyễn Bỉnh Khiêm">
+                    </div>
+                </div>
+
+                <!--Lối vào chính từ phía Thảo Cầm Viên-->
+                <div class="hotspot" id="hotspot-entrance-bottom">
+                    <div class="detail-box image-detail">
+                        <img src="images/21.png" alt="Lối vào chính từ phía Thảo Cầm Viên">
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="diagram-container">
+                <img src="images/chu_thich.png" alt="Chú thích" class="main-diagram-image">
+            </div>        
+        </div>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <p>
+                            <i class="bi bi-geo-alt-fill"></i> Số 2 Nguyễn Bỉnh Khiêm, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh <br>
+                            <i class="bi bi-telephone-fill"></i> (028) 3829 8146 - 3829 0268 - Fax: (028) 3825 8784 <br>
+                            <i class="bi bi-envelope-open-fill"></i> bt.ls.svhtt@tphcm.gov.vn <br>
+                            &copy; 2025 Bảo tàng Lịch sử TP.HCM. All rights reserved.
+                        </p>
+                    </div>
+                    <!-- Liên kết xã hội -->
+                    <div class="col-md-4">
+                        <ul class="social-links">
+                            <li><a href="https://www.facebook.com/baotanglichsu/"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCu09VHlMr9FKoEk6FsH3n-A"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
